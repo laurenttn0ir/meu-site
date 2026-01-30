@@ -32,8 +32,8 @@
     }
     section { margin-bottom: 5rem; }
     .promos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 4rem;
     }
     .promo-card {
@@ -62,7 +62,7 @@
     .promo-card .price { font-size: 3.2rem; font-weight: 700; color: #ff3366; margin: 1rem 0; }
     .promo-card .frete { color: #39ff14; font-size: 1.4rem; font-weight: 600; margin-bottom: 1.8rem; }
     .btn {
-      padding: 1.2rem 2.8rem;
+      padding: 0.9rem 2rem; /* Botões de compra menores */
       background: #39ff14;
       color: #000;
       font-weight: 700;
@@ -70,11 +70,11 @@
       border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s;
-      font-size: 1.2rem;
-      margin: 0.8rem 0.5rem;
+      font-size: 1rem; /* Fonte menor */
+      margin: 0.6rem 0.4rem;
     }
     .btn:hover { background: #2ecc10; transform: scale(1.05); }
-    .whatsapp-btn { background: #25D366; color: white; }
+    .whatsapp-btn { background: #25D366; color: white; padding: 0.9rem 2rem; font-size: 1rem; }
     footer {
       text-align: center;
       padding: 4rem;
@@ -83,8 +83,8 @@
       margin-top: 6rem;
     }
 
-    /* Modais com transição suave */
-    .modal {
+    /* Modal de preenchimento */
+    #buyModal {
       display: none;
       position: fixed;
       inset: 0;
@@ -96,10 +96,8 @@
       -webkit-overflow-scrolling: touch;
       touch-action: pan-y;
       padding: 20px;
-      transition: opacity 0.3s ease;
     }
-    .modal.show { display: flex; opacity: 1; }
-    .modal-content {
+    #buyModal .modal-content {
       background: #0f0f0f;
       padding: 35px 25px;
       border-radius: 24px;
@@ -112,11 +110,8 @@
       position: relative;
       max-height: 90vh;
       overflow-y: auto;
-      transform: scale(0.95);
-      transition: transform 0.3s ease;
     }
-    .modal.show .modal-content { transform: scale(1); }
-    .close-x {
+    #buyModal .close-x {
       position: absolute;
       top: 15px;
       right: 20px;
@@ -125,9 +120,43 @@
       font-weight: bold;
       cursor: pointer;
       line-height: 1;
-      z-index: 10;
     }
-    .close-x:hover { color: #ff6b6b; transform: scale(1.2); }
+    #buyModal .close-x:hover { color: #ff6b6b; transform: scale(1.2); }
+    #buyModal h2 {
+      color: #39ff14;
+      font-size: 2.4rem;
+      margin-bottom: 25px;
+    }
+    #buyModal p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #bbb;
+    }
+    #buyModal label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ddd;
+    }
+    #buyModal input {
+      width: 100%;
+      padding: 16px;
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 12px;
+      margin-bottom: 22px;
+      font-size: 1.1rem;
+    }
+    #freteResult {
+      margin: 30px 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #39ff14;
+      min-height: 60px;
+    }
     .btn-green {
       width: 100%;
       margin: 15px 0;
@@ -221,11 +250,11 @@
     © 2026 - Venda sob prescrição médica. Consulte um profissional de saúde antes de usar. Contato: +55 16 98876-7617
   </footer>
 
-  <!-- Modal 1: Preenchimento de dados -->
-  <div id="buyModal" class="modal">
-    <div class="modal-content">
-      <span class="close-x" onclick="fecharModal('buyModal')">X</span>
-      <h2>Preencha seus dados</h2>
+  <!-- Modal de preenchimento -->
+  <div id="buyModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; justify-content:center; align-items:center; overflow-y:auto; -webkit-overflow-scrolling:touch; touch-action:pan-y; padding:20px;">
+    <div style="background:#0f0f0f; padding:35px 25px; border-radius:24px; border:3px solid #39ff14; max-width:450px; width:94%; text-align:center; color:#e0e0e0; box-shadow:0 15px 50px rgba(57,255,20,0.2); position:relative;">
+      <span onclick="fecharModal()" style="position:absolute; top:15px; right:20px; color:#ff3366; font-size:3.5rem; font-weight:bold; cursor:pointer; line-height:1;">X</span>
+      <h2 style="color:#39ff14; font-size:2.4rem; margin-bottom:25px;">Preencha seus dados</h2>
       
       <p style="font-size:1.1rem; margin-bottom:30px; color:#bbb;">
         Vamos calcular o frete e gerar seu PIX.
@@ -248,29 +277,16 @@
       <div id="freteResult" style="margin:30px 0; font-size:1.4rem; font-weight:700; color:#39ff14;"></div>
 
       <button class="btn-green" onclick="calcularFrete()">Calcular Frete</button>
-      <button class="btn-green" onclick="irParaConfirmacao()">Prosseguir</button>
-      <button onclick="fecharModal('buyModal')" class="btn-cancel">Cancelar</button>
-    </div>
-  </div>
-
-  <!-- Modal 2: Confirmação -->
-  <div id="confirmModal" class="modal">
-    <div class="modal-content">
-      <span class="close-x" onclick="fecharModal('confirmModal')">X</span>
-      <h2>Confirme seus dados</h2>
-      
-      <div id="dataSummary" style="text-align:left; font-size:1.1rem; margin:2rem 0; line-height:1.8; color:#ccc;"></div>
-
-      <button class="btn-green" onclick="gerarPixFinal()">Confirmar e Gerar PIX</button>
-      <button onclick="fecharModal('confirmModal')" class="btn-cancel">Voltar</button>
+      <button class="btn-green" onclick="prosseguirCompra()">Prosseguir para PIX</button>
+      <button onclick="fecharModal()" class="btn-cancel">Cancelar</button>
     </div>
   </div>
 
   <!-- Modal PIX -->
-  <div id="pixModal" class="modal">
-    <div class="modal-content">
-      <span class="close-x" onclick="fecharModal('pixModal')">X</span>
-      <h2>Pague via PIX</h2>
+  <div id="pixModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center; flex-direction:column;">
+    <div style="background:#111; padding:30px; border-radius:16px; border:3px solid #39ff14; max-width:420px; width:94%; text-align:center; color:#e0e0e0;">
+      <span onclick="fecharModal('pixModal')" style="position:absolute; top:15px; right:20px; color:#ff3366; font-size:3.5rem; font-weight:bold; cursor:pointer; line-height:1;">X</span>
+      <h2 style="color:#39ff14; margin-bottom:20px;">Pague via PIX</h2>
       <p id="pixValue" style="font-size:1.3rem; margin-bottom:20px;"></p>
       
       <img id="qrImage" src="" alt="QR Code PIX" style="width:240px; height:240px; margin:20px auto; border:4px solid #39ff14; border-radius:12px;">
@@ -313,7 +329,7 @@
       qrEl.src = '';
       codeEl.value = 'Gerando PIX... Aguarde';
 
-      modal.classList.add('show');
+      modal.style.display = 'flex';
 
       try {
         const response = await fetch(API_URL, {
@@ -362,13 +378,16 @@
       alert('Código PIX copiado!');
     }
 
+    function closePixModal() {
+      document.getElementById('pixModal').style.display = 'none';
+    }
+
     // Fluxo de modais
     let itemAtual = {};
-    let dadosCliente = {};
 
     function abrirModalCompra(produto, valor) {
       itemAtual = { produto, valor };
-      document.getElementById('buyModal').classList.add('show');
+      document.getElementById('buyModal').style.display = 'flex';
       document.getElementById('email').focus();
     }
 
@@ -389,7 +408,7 @@
       window.freteAtual = frete;
     }
 
-    function irParaConfirmacao() {
+    function prosseguirCompra() {
       const email = document.getElementById('email').value.trim();
       const cep = document.getElementById('cep').value.trim();
       const numero = document.getElementById('numero').value.trim();
@@ -400,30 +419,20 @@
         return;
       }
 
-      dadosCliente = { email, cep, numero, complemento, frete: window.freteAtual || 0 };
+      const frete = window.freteAtual || 0;
+      const total = itemAtual.valor + frete;
 
-      const summary = `
-        <strong>Email:</strong> ${email}<br>
-        <strong>CEP:</strong> ${cep}<br>
-        <strong>Número:</strong> ${numero}<br>
-        ${complemento ? `<strong>Complemento:</strong> ${complemento}<br>` : ''}
-        <strong>Frete estimado:</strong> R$${dadosCliente.frete.toFixed(2)}<br>
-        <strong>Total a pagar:</strong> R$${(itemAtual.valor + dadosCliente.frete).toFixed(2)}
-      `;
+      adicionarAoCarrinho(itemAtual.produto, itemAtual.valor);
 
-      document.getElementById('dataSummary').innerHTML = summary;
-      fecharModal('buyModal');
-      document.getElementById('confirmModal').classList.add('show');
-    }
-
-    function gerarPixFinal() {
-      const total = itemAtual.valor + dadosCliente.frete;
       gerarPix(total * 100, itemAtual.produto + ' + Frete');
-      fecharModal('confirmModal');
+
+      alert(`PIX gerado com sucesso para R$${total.toFixed(2)} (inclui frete)!\nAguarde confirmação do pagamento. Em breve você receberá email automático com instruções e link do grupo.`);
+
+      fecharModal();
     }
 
-    function fecharModal(modalId) {
-      document.getElementById(modalId).classList.remove('show');
+    function fecharModal() {
+      document.getElementById('buyModal').style.display = 'none';
     }
 
     // Carrinho discreto

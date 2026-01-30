@@ -61,15 +61,8 @@
     .promo-card h3 { font-size: 2.2rem; color: #39ff14; margin-bottom: 1rem; }
     .promo-card .price { font-size: 3.2rem; font-weight: 700; color: #ff3366; margin: 1rem 0; }
     .promo-card .frete { color: #39ff14; font-size: 1.4rem; font-weight: 600; margin-bottom: 1.8rem; }
-    .btn-wrapper {
-      display: flex;
-      justify-content: center;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
     .btn {
-      padding: 0.9rem 2rem;
+      padding: 1.2rem 2.8rem;
       background: #39ff14;
       color: #000;
       font-weight: 700;
@@ -77,13 +70,13 @@
       border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s;
-      font-size: 1.1rem;
-      flex: 1 1 45%;
-      max-width: 48%;
-      min-width: 140px;
+      font-size: 1.2rem;
+      margin: 0.8rem 0.5rem;
     }
-    .btn:hover { background: #2ecc10; transform: scale(1.03); }
+    .btn:hover { background: #2ecc10; transform: scale(1.05); }
     .whatsapp-btn { background: #25D366; color: white; }
+
+    /* Carrinho */
     #cart-icon {
       position: fixed;
       top: 20px;
@@ -125,6 +118,7 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.7);
       z-index: 999;
     }
+
     footer {
       text-align: center;
       padding: 4rem;
@@ -132,6 +126,8 @@
       border-top: 1px solid #222;
       margin-top: 6rem;
     }
+
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -206,8 +202,10 @@
 </head>
 <body>
 
+  <!-- Ícone do carrinho -->
   <div id="cart-icon">🛒 <span id="cart-badge">0</span></div>
 
+  <!-- Dropdown do carrinho -->
   <div id="cart-dropdown">
     <h4 style="color:#39ff14; margin-bottom:10px; text-align:center;">Seu Carrinho</h4>
     <ul id="cart-items"></ul>
@@ -229,10 +227,8 @@
           <h3>1 Caixa (30 cápsulas)</h3>
           <div class="price">R$ 90</div>
           <p>Inicie sua transformação agora mesmo.</p>
-          <div class="btn-wrapper">
-            <button class="btn" onclick="adicionarAoCarrinho('1 Caixa (30 cápsulas)', 90)">Comprar Agora</button>
-            <a href="https://wa.me/+5516988767617?text=Quero+1+caixa+de+sibutramina+15mg" class="btn whatsapp-btn">Falar no WhatsApp</a>
-          </div>
+          <button class="btn" onclick="adicionarAoCarrinho('1 Caixa (30 cápsulas)', 90)">Comprar Agora</button>
+          <a href="https://wa.me/+5516988767617?text=Quero+1+caixa+de+sibutramina+15mg" class="btn whatsapp-btn">Falar no WhatsApp</a>
         </div>
 
         <div class="promo-card">
@@ -241,10 +237,8 @@
           <div class="price">R$ 170</div>
           <div class="frete">+ Frete Grátis</div>
           <p>Economize e acelere os resultados.</p>
-          <div class="btn-wrapper">
-            <button class="btn" onclick="adicionarAoCarrinho('2 Caixas (60 cápsulas)', 170)">Comprar Agora</button>
-            <a href="https://wa.me/+5516988767617?text=Quero+2+caixas+de+sibutramina+15mg" class="btn whatsapp-btn">Falar no WhatsApp</a>
-          </div>
+          <button class="btn" onclick="adicionarAoCarrinho('2 Caixas (60 cápsulas)', 170)">Comprar Agora</button>
+          <a href="https://wa.me/+5516988767617?text=Quero+2+caixas+de+sibutramina+15mg" class="btn whatsapp-btn">Falar no WhatsApp</a>
         </div>
 
         <div class="promo-card">
@@ -253,10 +247,8 @@
           <div class="price">R$ 220</div>
           <div class="frete">+ Frete Grátis</div>
           <p>Melhor custo-benefício para resultados duradouros.</p>
-          <div class="btn-wrapper">
-            <button class="btn" onclick="adicionarAoCarrinho('3 Caixas (90 cápsulas)', 220)">Comprar Agora</button>
-            <a href="https://wa.me/+5516988767617?text=Quero+3+caixas+de+sibutramina+15mg" class="btn whatsapp-btn">Falar no WhatsApp</a>
-          </div>
+          <button class="btn" onclick="adicionarAoCarrinho('3 Caixas (90 cápsulas)', 220)">Comprar Agora</button>
+          <a href="https://wa.me/+5516988767617?text=Quero+3+caixas+de+sibutramina+15mg" class="btn whatsapp-btn">Falar no WhatsApp</a>
         </div>
       </div>
     </section>
@@ -334,7 +326,7 @@
 
   <script>
     const API_URL = 'https://api.pushinpay.com.br/api/pix/cashIn';
-    const TOKEN = '61385|vzadgjPsG9XCvI8SaRDfR6ukc250GIv6KoUkt4HF61c3ea83';
+    const TOKEN = '61386|R7lNhPAqyXCEuzgh2omy27dEeWj3wQstbuiTe1bW99f8eefe';
 
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     let itemAtual = {};
@@ -363,7 +355,10 @@
           body: JSON.stringify({ value: valorCentavos, webhook_url: '' })
         });
 
-        if (!res.ok) throw new Error('Erro na API: ' + res.status);
+        if (!res.ok) {
+          const errText = await res.text();
+          throw new Error(`Erro HTTP ${res.status}: ${errText}`);
+        }
 
         const data = await res.json();
 
@@ -387,7 +382,8 @@
         }
       } catch (err) {
         codeEl.value = 'Falha: ' + err.message;
-        console.error('Erro ao gerar PIX:', err);
+        console.error('Erro completo na API:', err);
+        alert('Erro ao gerar PIX: ' + err.message + '\nVerifique o console (F12) e me mande o erro!');
       }
     }
 
@@ -407,7 +403,6 @@
       }
       localStorage.setItem('carrinho', JSON.stringify(carrinho));
       atualizarCarrinho();
-      console.log('Item adicionado:', produto); // pra debug
     }
 
     function removerItem(index) {
@@ -451,7 +446,7 @@
       if (!el) return;
 
       if (cep.length !== 8 || !/^\d{8}$/.test(cep)) {
-        el.innerHTML = '<span style="color:#ff3366;">CEP inválido (8 números)</span>';
+        el.innerHTML = '<span style="color:#ff3366;">CEP inválido (digite 8 números)</span>';
         return;
       }
 

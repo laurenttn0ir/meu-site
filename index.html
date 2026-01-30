@@ -65,11 +65,12 @@
       background: #39ff14;
       color: #000;
       font-weight: 700;
-      border: none;
+      text-decoration: none;
       border-radius: 50px;
       margin: 0.8rem 0.5rem;
-      cursor: pointer;
       transition: background 0.3s;
+      border: none;
+      cursor: pointer;
     }
     .btn:hover { background: #2ecc10; }
     .whatsapp-btn { background: #25D366; color: white; }
@@ -82,80 +83,90 @@
       margin-top: 4rem;
     }
 
-    /* Carrinho no topo direito */
+    /* Carrinho discreto e pequeno */
     #cart-icon {
       position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #39ff14;
-      color: #000;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 1.8rem;
+      top: 15px;
+      right: 15px;
+      background: transparent;
+      color: #777;
+      font-size: 1.4rem;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(57,255,20,0.4);
       z-index: 10000;
+      padding: 8px;
+      border-radius: 50%;
+      transition: color 0.3s;
     }
+    #cart-icon:hover { color: #39ff14; }
     #cart-badge {
       position: absolute;
-      top: -8px;
-      right: -8px;
-      background: #ff3366;
-      color: white;
-      font-size: 0.9rem;
-      width: 24px;
-      height: 24px;
+      top: -5px;
+      right: -5px;
+      background: #39ff14;
+      color: #000;
+      font-size: 0.7rem;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-weight: bold;
+      display: none;
     }
     #cart-dropdown {
       position: fixed;
-      top: 70px;
-      right: 20px;
-      background: #111;
-      border: 1px solid #39ff14;
-      border-radius: 12px;
-      padding: 15px;
-      width: 300px;
-      max-height: 400px;
+      top: 45px;
+      right: 15px;
+      background: #0f0f0f;
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 12px;
+      width: 220px;
+      max-height: 300px;
       overflow-y: auto;
       display: none;
       z-index: 9999;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
-    #cart-items { list-style: none; padding: 0; }
-    #cart-items li { margin: 10px 0; border-bottom: 1px solid #333; padding-bottom: 10px; }
-    #cart-total { font-weight: bold; margin-top: 15px; color: #39ff14; }
+    #cart-items { list-style: none; padding: 0; margin: 0; }
+    #cart-items li { margin: 8px 0; font-size: 0.9rem; border-bottom: 1px solid #222; padding-bottom: 8px; }
+    #cart-total { font-size: 1rem; margin-top: 10px; color: #39ff14; text-align: right; }
 
     /* Modal Compra */
-    #buyModal input, #buyModal select {
+    #buyModal input {
       width: 100%;
       padding: 12px;
       background: #222;
       color: #fff;
       border: 1px solid #444;
       border-radius: 8px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+      font-size: 1rem;
     }
     #buyModal label {
       display: block;
-      margin-bottom: 5px;
+      margin: 10px 0 5px;
       font-weight: 600;
+      font-size: 0.95rem;
     }
-    #freteResult { margin: 20px 0; font-size: 1.2rem; color: #39ff14; }
+    #freteResult {
+      margin: 15px 0;
+      font-size: 1.1rem;
+      color: #39ff14;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Carrinho no topo direito -->
+  <!-- Carrinho discreto no topo direito -->
   <div id="cart-icon">🛒 <span id="cart-badge">0</span></div>
   <div id="cart-dropdown">
-    <h3 style="color:#39ff14; margin-bottom:15px;">Carrinho</h3>
+    <h4 style="color:#39ff14; margin-bottom:10px; font-size:1rem;">Carrinho</h4>
     <ul id="cart-items"></ul>
-    <p id="cart-total">Total: R$0,00</p>
-    <button class="btn" onclick="finalizarCarrinho()">Finalizar Pedido</button>
+    <p id="cart-total" style="font-weight:bold;">Total: R$0,00</p>
+    <button class="btn" onclick="finalizarCarrinho()" style="width:100%; margin-top:10px;">Finalizar Pedido</button>
   </div>
 
   <header>
@@ -164,7 +175,6 @@
   </header>
 
   <main>
-    <!-- Seu conteúdo original mantido igual (benefícios, como funciona, por que comprar) -->
     <section>
       <h2>Benefícios da Sibutramina 15mg</h2>
       <ul>
@@ -176,7 +186,22 @@
       </ul>
     </section>
 
-    <!-- ... resto das sections ... -->
+    <section>
+      <h2>Como a Sibutramina Funciona?</h2>
+      <p>A sibutramina 15mg age no cérebro inibindo a recaptação de serotonina e noradrenalina (neurotransmissores que controlam fome e saciedade). Isso faz você se sentir satisfeito mais rápido e por mais tempo, reduzindo a ingestão calórica naturalmente. Além disso, previne a queda no metabolismo após perda inicial de peso, ajudando a queimar mais calorias mesmo em repouso. É um duplo mecanismo: menos comida + mais queima = emagrecimento real e sustentável (sempre com orientação médica).</p>
+    </section>
+
+    <section class="why-buy">
+      <h2>Por Que Comprar Agora? (Razões que Fazem Sentido pqp)</h2>
+      <ul>
+        <li>Resultados comprovados: milhares de pessoas perdem 5-10kg ou mais em 1-3 meses – funciona de verdade quando associado a hábitos saudáveis.</li>
+        <li>Genérico de qualidade (Eurofarma) – mesmo princípio ativo, preço acessível e entrega rápida/discreta.</li>
+        <li>Promoções exclusivas: 1 caixa por R$90, 2 por R$170 (+ frete grátis), 3 por R$220 (+ frete grátis) – economia gigante e estoque voando.</li>
+        <li>Frete grátis nas quantidades maiores – chega na sua casa sem custo extra.</li>
+        <li>Confiança total: produto original, fotos reais do estoque, suporte via WhatsApp imediato.</li>
+        <li>Não perca tempo: quanto antes começar, mais rápido você vê a diferença no espelho e na balança. Estoque limitado – garanta o seu antes que acabe!</li>
+      </ul>
+    </section>
 
     <section>
       <h2>Promoções Imperdíveis</h2>
@@ -190,7 +215,6 @@
           <a href="https://wa.me/+5516988767617?text=Quero+1+caixa+de+sibutramina+15mg" class="btn whatsapp-btn">Falar no WhatsApp</a>
         </div>
 
-        <!-- Repita para 2 e 3 caixas -->
         <div class="promo-card">
           <img src="caixas-sibutramina.jpg" loading="lazy" alt="Caixas empilhadas de Sibutramina 15mg Eurofarma Genérico">
           <h3>2 Caixas (60 cápsulas)</h3>
@@ -218,11 +242,11 @@
     © 2026 - Venda sob prescrição médica. Consulte um profissional de saúde antes de usar. Contato: +55 16 98876-7617 , slv rk e o resto q se foda damn
   </footer>
 
-  <!-- Modal de Compra (novo fluxo) -->
+  <!-- Modal de Compra (fluxo com CEP, email, endereço) -->
   <div id="buyModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
     <div style="background:#111; padding:30px; border-radius:16px; border:2px solid #39ff14; max-width:450px; width:90%; text-align:center; color:#e0e0e0;">
-      <h2 style="color:#39ff14;">Finalizar Compra</h2>
-      <p>Preencha os dados para calcular frete e prosseguir.</p>
+      <h2 style="color:#39ff14; margin-bottom:20px;">Finalizar Compra</h2>
+      <p style="margin-bottom:20px;">Preencha os dados para calcular frete e prosseguir.</p>
 
       <label for="email">Email (obrigatório)</label>
       <input id="email" type="email" placeholder="seu@email.com" required>
@@ -234,9 +258,9 @@
       <input id="numero" type="text" placeholder="123" required>
 
       <label for="complemento">Complemento (opcional)</label>
-      <input id="complemento" type="text" placeholder="Apto 101">
+      <input id="complemento" type="text" placeholder="Apto 101, Bloco B">
 
-      <div id="freteResult" style="margin:20px 0; font-size:1.2rem;"></div>
+      <div id="freteResult" style="margin:20px 0; font-size:1.2rem; color:#39ff14;"></div>
 
       <button class="btn" onclick="calcularFrete()" style="margin:10px;">Calcular Frete</button>
       <button class="btn" onclick="prosseguirCompra()" style="margin:10px;">Prosseguir</button>
@@ -244,17 +268,92 @@
     </div>
   </div>
 
-  <!-- Seu modal PIX original mantido -->
-  <div id="pixModal" style="display:none; ..."> <!-- seu modal PIX inteiro aqui, igual ao que você tinha --> </div>
+  <!-- Seu modal PIX original (mantido igual) -->
+  <div id="pixModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center; flex-direction:column;">
+    <div style="background:#111; padding:25px; border-radius:12px; border:2px solid #39ff14; max-width:380px; width:90%; text-align:center; color:#e0e0e0;">
+      <h2 style="color:#39ff14; margin-bottom:15px;">Pague via PIX</h2>
+      <p id="pixValue" style="font-size:1.2rem; margin-bottom:15px;"></p>
+      
+      <img id="qrImage" src="" alt="QR Code PIX" style="width:220px; height:220px; margin:15px auto; border:3px solid #39ff14; border-radius:8px;">
+      
+      <p style="margin:10px 0;">Código Copia e Cola:</p>
+      <input id="pixCode" readonly value="" style="width:100%; padding:12px; background:#222; color:#39ff14; border:1px solid #444; border-radius:8px; font-family:monospace; text-align:center;">
+      
+      <button onclick="copyPixCode()" style="background:#25D366; color:#fff; padding:12px 20px; border:none; border-radius:50px; font-weight:600; margin:15px 0; cursor:pointer;">Copiar Código</button>
+      
+      <div style="font-size:0.95rem; color:#ccc; margin:20px 0;">
+        <strong>Como pagar:</strong><br>
+        1. Abra o app do seu banco.<br>
+        2. Vá em PIX > Copiar e Colar ou Ler QR.<br>
+        3. Cole o código ou escaneie o QR.<br>
+        4. Confirme o valor e pague.
+      </div>
+      
+      <div style="background:#222; padding:12px; border-radius:8px; font-size:0.9rem; color:#ffcc00; margin:15px 0;">
+        AVISO: Transação processada pela PushinPay. A processadora não é responsável pelo produto/entrega. Consulte termos.
+      </div>
+      
+      <button onclick="closePixModal()" style="background:#ff3366; color:#fff; padding:12px 25px; border:none; border-radius:50px; font-weight:600; cursor:pointer;">Fechar</button>
+    </div>
+  </div>
 
   <script>
-    // Seu PIX original mantido (não mudei nada aqui)
+    // Seu PIX original (não alterado)
     const API_URL = 'https://api.pushinpay.com.br/api/pix/cashIn';
     const TOKEN = '61376|erZ9RwizmybWyqdLeI4BIsoayVGMcioh8XLtUNGaabcaf67f';
 
-    // ... função gerarPix, copyPixCode, closePixModal iguais ...
+    async function gerarPix(valorCentavos, produto) {
+      const modal = document.getElementById('pixModal');
+      const valueEl = document.getElementById('pixValue');
+      const qrEl = document.getElementById('qrImage');
+      const codeEl = document.getElementById('pixCode');
 
-    // Novo: Carrinho simples com localStorage
+      valueEl.textContent = `Valor: R$${(valorCentavos / 100).toFixed(2)} - ${produto}`;
+      qrEl.src = '';
+      codeEl.value = 'Gerando PIX... Aguarde 5-10 segundos';
+
+      modal.style.display = 'flex';
+
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${TOKEN}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            value: valorCentavos,
+            webhook_url: ''
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.qr_code_base64 && data.qr_code) {
+          qrEl.src = data.qr_code_base64.includes('data:') ? data.qr_code_base64 : `data:image/png;base64,${data.qr_code_base64}`;
+          codeEl.value = data.qr_code;
+        } else {
+          codeEl.value = `Erro da API: ${response.status} - ${data.message || 'Token inválido, IP não liberado ou valor incorreto'}`;
+        }
+      } catch (error) {
+        codeEl.value = `Falha na conexão: ${error.message}. Verifique internet, token ou White IP List.`;
+        console.error('Erro completo:', error);
+      }
+    }
+
+    function copyPixCode() {
+      const code = document.getElementById('pixCode');
+      code.select();
+      document.execCommand('copy');
+      alert('Código PIX copiado! Cole no seu app de banco.');
+    }
+
+    function closePixModal() {
+      document.getElementById('pixModal').style.display = 'none';
+    }
+
+    // Novo: Carrinho discreto
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
     function atualizarCarrinho() {
@@ -262,19 +361,16 @@
       badge.textContent = carrinho.length;
       badge.style.display = carrinho.length > 0 ? 'flex' : 'none';
 
-      const dropdown = document.getElementById('cart-dropdown');
       const itemsList = document.getElementById('cart-items');
-      const totalEl = document.getElementById('cart-total');
-
       itemsList.innerHTML = '';
       let total = 0;
       carrinho.forEach(item => {
         total += item.valor * item.quantidade;
         const li = document.createElement('li');
-        li.innerHTML = `${item.produto} x${item.quantidade} - R$${(item.valor * item.quantidade).toFixed(2)}`;
+        li.textContent = `${item.produto} x${item.quantidade} - R$${(item.valor * item.quantidade).toFixed(2)}`;
         itemsList.appendChild(li);
       });
-      totalEl.textContent = `Total: R$${total.toFixed(2)}`;
+      document.getElementById('cart-total').textContent = `Total: R$${total.toFixed(2)}`;
     }
 
     document.getElementById('cart-icon').addEventListener('click', () => {
@@ -295,12 +391,13 @@
 
     function finalizarCarrinho() {
       if (carrinho.length === 0) return alert('Carrinho vazio!');
-      const msg = carrinho.map(i => `${i.produto} x${i.quantidade}`).join('\n');
-      const link = `https://wa.me/+5516988767617?text=Finalizar carrinho:\n${msg}`;
+      let msg = 'Finalizar carrinho:\n';
+      carrinho.forEach(i => msg += `${i.produto} x${i.quantidade} - R$${(i.valor * i.quantidade).toFixed(2)}\n`);
+      const link = `https://wa.me/+5516988767617?text=${encodeURIComponent(msg)}`;
       window.open(link, '_blank');
     }
 
-    // Novo modal de compra
+    // Modal Compra
     let itemAtual = {};
 
     function abrirModalCompra(produto, valor) {
@@ -313,15 +410,15 @@
       const cep = document.getElementById('cep').value.trim();
       const freteEl = document.getElementById('freteResult');
 
-      if (cep.length !== 8) {
-        freteEl.innerHTML = '<span style="color:#ff3366;">CEP inválido!</span>';
+      if (cep.length !== 8 || isNaN(cep)) {
+        freteEl.innerHTML = '<span style="color:#ff3366;">CEP inválido! Digite 8 números.</span>';
         return;
       }
 
-      // Simulação: +15 para 1 caixa, +10 para 2/3 (ajuste conforme sua margem)
+      // Simulação de frete Loggi (aumenta 15 para 1 caixa, 10 para 2/3)
       let frete = 0;
       if (itemAtual.valor === 90) frete = 15;
-      else if (itemAtual.valor === 170 || itemAtual.valor === 220) frete = 10;
+      else frete = 10;
 
       freteEl.innerHTML = `Frete estimado: R$${frete.toFixed(2)}<br>Total: R$${(itemAtual.valor + frete).toFixed(2)}`;
       window.freteAtual = frete;
@@ -333,12 +430,17 @@
       const numero = document.getElementById('numero').value.trim();
       const complemento = document.getElementById('complemento').value.trim();
 
-      if (!email || !cep || !numero) return alert('Preencha os campos obrigatórios!');
+      if (!email || !cep || !numero) {
+        alert('Preencha Email, CEP e Número da casa!');
+        return;
+      }
+
+      const frete = window.freteAtual || 0;
+      const total = itemAtual.valor + frete;
 
       adicionarAoCarrinho(itemAtual.produto, itemAtual.valor);
 
-      const total = itemAtual.valor + (window.freteAtual || 0);
-      alert(`Adicionado ao carrinho! Total estimado: R$${total.toFixed(2)}\nEmail: ${email}\nCEP: ${cep}, nº ${numero} ${complemento}`);
+      alert(`Adicionado ao carrinho! Total com frete: R$${total.toFixed(2)}\nEmail: ${email}\nCEP: ${cep}, nº ${numero} ${complemento || ''}`);
 
       fecharModal();
     }

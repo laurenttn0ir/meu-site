@@ -230,7 +230,7 @@
       <h2>Promoções Imperdíveis</h2>
       <div class="promos">
         <div class="promo-card">
-          <img src="https://via.placeholder.com/400x340/0f0f0f/39ff14?text=Sibutramina+15mg+1+Caixa" loading="lazy" alt="1 Caixa Sibutramina 15mg">
+          <img src="img/subir.jpg" loading="lazy" alt="1 Caixa Sibutramina 15mg">
           <h3>1 Caixa (30 cápsulas)</h3>
           <div class="price">R$ 90</div>
           <p>Inicie sua transformação agora mesmo.</p>
@@ -241,7 +241,7 @@
         </div>
 
         <div class="promo-card">
-          <img src="https://via.placeholder.com/400x340/0f0f0f/39ff14?text=Sibutramina+15mg+2+Caixas" loading="lazy" alt="2 Caixas Sibutramina 15mg">
+          <img src="img/subir.jpg" loading="lazy" alt="2 Caixas Sibutramina 15mg">
           <h3>2 Caixas (60 cápsulas)</h3>
           <div class="price">R$ 170</div>
           <div class="frete">+ Frete Grátis</div>
@@ -253,7 +253,7 @@
         </div>
 
         <div class="promo-card">
-          <img src="https://via.placeholder.com/400x340/0f0f0f/39ff14?text=Sibutramina+15mg+3+Caixas" loading="lazy" alt="3 Caixas Sibutramina 15mg">
+          <img src="img/subir.jpg" loading="lazy" alt="3 Caixas Sibutramina 15mg">
           <h3>3 Caixas (90 cápsulas)</h3>
           <div class="price">R$ 220</div>
           <div class="frete">+ Frete Grátis</div>
@@ -346,194 +346,4 @@
     let freteAtual = 0;
 
     function confirmarAdicionar(produto, valor) {
-      if (confirm(`Deseja adicionar 1 unidade de "${produto}" ao carrinho?`)) {
-        adicionarAoCarrinho(produto, valor);
-        alert('Adicionado ao carrinho! Clique no ícone 🛒 para ver.');
-      }
-    }
-
-    function adicionarAoCarrinho(produto, valor) {
-      let item = carrinho.find(i => i.produto === produto);
-      if (item) {
-        item.quantidade = (item.quantidade || 1) + 1;
-      } else {
-        carrinho.push({ produto, valor, quantidade: 1 });
-      }
-      localStorage.setItem('carrinho', JSON.stringify(carrinho));
-      atualizarCarrinho();
-    }
-
-    function removerItem(index) {
-      carrinho.splice(index, 1);
-      localStorage.setItem('carrinho', JSON.stringify(carrinho));
-      atualizarCarrinho();
-    }
-
-    function atualizarCarrinho() {
-      const badge = document.getElementById('cart-badge');
-      const totalItens = carrinho.reduce((acc, i) => acc + (i.quantidade || 1), 0);
-      badge.textContent = totalItens || '';
-      badge.style.display = totalItens > 0 ? 'inline-block' : 'none';
-
-      const list = document.getElementById('cart-items');
-      list.innerHTML = '';
-      let total = 0;
-
-      carrinho.forEach((item, idx) => {
-        const qtd = item.quantidade || 1;
-        total += item.valor * qtd;
-        const li = document.createElement('li');
-        li.style.cssText = 'display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #222;';
-        li.innerHTML = `
-          <span>${item.produto} ×${qtd}</span>
-          <span style="display:flex;align-items:center;gap:12px;">
-            <strong>R$${(item.valor * qtd).toFixed(2)}</strong>
-            <span onclick="removerItem(${idx})" style="color:#ff3366;cursor:pointer;font-weight:bold;font-size:1.4rem;padding:0 4px;">×</span>
-          </span>
-        `;
-        list.appendChild(li);
-      });
-
-      document.getElementById('cart-total').textContent = `Total: R$${total.toFixed(2)}`;
-    }
-
-    function calcularFrete() {
-      const cep = document.getElementById('cep')?.value?.trim() || '';
-      const el = document.getElementById('freteResult');
-
-      if (cep.length !== 8 || !/^\d{8}$/.test(cep)) {
-        el.innerHTML = '<span style="color:#ff3366;">CEP inválido (digite 8 números)</span>';
-        return;
-      }
-
-      const subtotal = carrinho.reduce((s, i) => s + i.valor * (i.quantidade || 1), 0);
-      freteAtual = subtotal >= 170 ? 0 : 15;
-
-      el.innerHTML = `Frete estimado: R$${freteAtual.toFixed(2)}<br><strong>Total: R$${(subtotal + freteAtual).toFixed(2)}</strong>`;
-    }
-
-    async function gerarPix(valorCentavos, descricao) {
-      alert('Iniciando geração de PIX...\nValor: R$' + (valorCentavos / 100).toFixed(2) + '\nDescrição: ' + descricao);
-
-      const valueEl = document.getElementById('pixValue');
-      const qrEl = document.getElementById('qrImage');
-      const codeEl = document.getElementById('pixCode');
-      const timerEl = document.getElementById('timeLeft');
-
-      valueEl.textContent = `Valor: R$${(valorCentavos / 100).toFixed(2)} - ${descricao}`;
-      qrEl.src = '';
-      codeEl.value = 'Conectando à API...';
-
-      document.getElementById('pixModal').style.display = 'flex';
-
-      try {
-        console.log('Enviando requisição para:', API_URL);
-        console.log('Token:', TOKEN.substring(0, 15) + '...');
-        console.log('Payload:', JSON.stringify({ value: valorCentavos, webhook_url: '' }));
-
-        const res = await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${TOKEN}`,
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({ value: valorCentavos, webhook_url: '' })
-        });
-
-        console.log('Status da resposta:', res.status);
-
-        if (!res.ok) {
-          const errText = await res.text();
-          console.error('Erro HTTP:', res.status, errText);
-          throw new Error(`Erro ${res.status}: ${errText}`);
-        }
-
-        const data = await res.json();
-        console.log('Resposta completa da API:', data);
-
-        if (data.qr_code_base64) {
-          qrEl.src = `data:image/png;base64,${data.qr_code_base64}`;
-          codeEl.value = data.qr_code || 'Código gerado com sucesso';
-          let time = 900;
-          const interval = setInterval(() => {
-            time--;
-            const m = Math.floor(time / 60);
-            const s = time % 60;
-            timerEl.textContent = `${m}:${s < 10 ? '0' + s : s}`;
-            if (time <= 0) {
-              clearInterval(interval);
-              timerEl.textContent = 'Tempo esgotado';
-            }
-          }, 1000);
-          alert('QR Code gerado com sucesso! Escaneie ou copie o código.');
-        } else {
-          codeEl.value = 'API respondeu, mas sem QR Code';
-          alert('Resposta sem QR. Veja o console (F12) para detalhes.');
-        }
-      } catch (err) {
-        console.error('Erro completo:', err);
-        codeEl.value = 'Falha: ' + err.message;
-        alert('Erro ao gerar PIX:\n' + err.message + '\n\nAbra F12 → Console e me mande o erro completo!');
-      }
-    }
-
-    function copyPixCode() {
-      const code = document.getElementById('pixCode');
-      code.select();
-      document.execCommand('copy');
-      alert('Código PIX copiado!');
-    }
-
-    function prosseguirParaPagamento() {
-      if (carrinho.length === 0) {
-        alert('Seu carrinho está vazio!');
-        return;
-      }
-      const subtotal = carrinho.reduce((s, i) => s + i.valor * (i.quantidade || 1), 0);
-      const total = subtotal + freteAtual;
-      itemAtual = { produto: 'Pedido de Sibutramina', valor: total };
-      document.getElementById('buyModal').style.display = 'flex';
-    }
-
-    function prosseguirCompra() {
-      const email = document.getElementById('email')?.value?.trim();
-      const cep   = document.getElementById('cep')?.value?.trim();
-      const numero = document.getElementById('numero')?.value?.trim();
-
-      if (!email || !cep || !numero) {
-        alert('Preencha Email, CEP e Número da casa!');
-        return;
-      }
-
-      const subtotal = carrinho.reduce((s, i) => s + i.valor * (i.quantidade || 1), 0);
-      const total = subtotal + freteAtual;
-
-      gerarPix(total * 100, itemAtual.produto + ' + Frete');
-
-      fecharModal('buyModal');
-    }
-
-    function fecharModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-
-    document.getElementById('cart-icon').addEventListener('click', e => {
-      e.stopPropagation();
-      const dd = document.getElementById('cart-dropdown');
-      dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
-    });
-
-    document.addEventListener('click', e => {
-      const dd = document.getElementById('cart-dropdown');
-      const icon = document.getElementById('cart-icon');
-      if (dd && icon && !dd.contains(e.target) && !icon.contains(e.target)) {
-        dd.style.display = 'none';
-      }
-    });
-
-    atualizarCarrinho();
-  </script>
-
-</body>
-</html>
+      if (confirm(`Deseja adicionar 1 unidade de "${produto}" ao carrinho?

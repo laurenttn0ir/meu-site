@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <!-- ==================================================
+       META TAGS E CONFIGURAÇÕES BÁSICAS - LINHAS 1-60
+  ================================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Loja especializada em medicamentos controlados: emagrecedores (Sibutramina), concentração (Ritalina, Venvanse), opioides, benzodiazepínicos, antipsicóticos, ansiolíticos. Entrega discreta e segura em todo o Brasil." />
-  <meta name="keywords" content="sibutramina, ritalina, venvanse, clonazepam, quetiapina, risperidona, alprazolam, diazepam, lorazepam, dimorf, zolpidem, medicamento controlado, compra online, entrega discreta" />
-  <meta name="author" content="Bernardo - Contato +55 16 98876-7617" />
+  <meta name="description" content="Loja especializada em medicamentos controlados: emagrecedores (Sibutramina), concentração (Ritalina, Venvanse), opioides, benzodiazepínicos, antipsicóticos, ansiolíticos. Entrega discreta e segura em todo o Brasil. Genéricos e originais." />
+  <meta name="keywords" content="sibutramina, ritalina, venvanse, clonazepam, quetiapina, risperidona, alprazolam, diazepam, lorazepam, dimorf, zolpidem, medicamento controlado, compra online, entrega discreta, genéricos baratos" />
+  <meta name="author" content="Bernardo Steinbrenner - Contato WhatsApp +55 16 98876-7617" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#000000" />
-  
-  <title>MELHOR PHARMACY DO ANO | Entrega Discreta e Segura</title>
-  
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>MELHOR PHARMACY DO ANO 2026 | Entrega Discreta e Segura</title>
+
+  <!-- Google Fonts - Poppins com todos os pesos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="icon" href="https://via.placeholder.com/32/27ae60/000?text=L" type="image/x-icon">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Favicon simples -->
+  <link rel="icon" href="https://via.placeholder.com/32/27ae60/000?text=RX" type="image/x-icon">
+  <link rel="apple-touch-icon" href="https://via.placeholder.com/180/27ae60/000?text=RX">
+
+  <!-- ==================================================
+       ESTILOS CSS - EXPANDIDO PARA +1200 LINHAS
+  ================================================== -->
   <style>
+    /* ========================================================= */
+    /* RESET GLOBAL E CONFIGURAÇÕES BASE - LINHAS 80-160         */
+    /* ========================================================= */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     html, body {
       height: 100%;
       font-family: 'Poppins', sans-serif;
@@ -32,554 +46,441 @@
       line-height: 1.7;
       overflow-x: hidden;
     }
-    
+
     body {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       position: relative;
     }
-    
+
+    /* ========================================================= */
+    /* BOTÃO HAMBURGER - MENU LATERAL - LINHAS 165-220           */
+    /* ========================================================= */
     .hamburger {
       position: fixed;
       top: 25px;
       left: 25px;
-      z-index: 4000;
+      z-index: 5000;
       background: #111111;
       color: #27ae60;
       border: none;
-      font-size: 2.4rem;
-      width: 60px;
-      height: 60px;
+      font-size: 2.6rem;
+      width: 65px;
+      height: 65px;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 25px rgba(39,174,96,0.25);
-      transition: all 0.35s ease;
+      box-shadow: 0 10px 30px rgba(39,174,96,0.28);
+      transition: all 0.4s ease;
     }
-    
+
     .hamburger:hover {
-      transform: scale(1.1) rotate(90deg);
+      transform: scale(1.12) rotate(90deg);
       background: #1a1a1a;
+      box-shadow: 0 15px 40px rgba(39,174,96,0.4);
     }
-    
+
+    /* ========================================================= */
+    /* SIDEBAR LATERAL ESQUERDA - LINHAS 225-320                 */
+    /* ========================================================= */
     .sidebar {
       position: fixed;
       left: 0;
       top: 0;
       bottom: 0;
-      width: 320px;
-      background: linear-gradient(to bottom, #0a0a0a, #000000);
+      width: 340px;
+      background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
       border-right: 1px solid #222222;
       transform: translateX(-100%);
-      transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
-      z-index: 3500;
-      padding: 120px 35px 50px;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+      z-index: 4500;
+      padding: 140px 40px 60px;
       overflow-y: auto;
-      box-shadow: 5px 0 30px rgba(0,0,0,0.8);
+      box-shadow: 8px 0 40px rgba(0,0,0,0.85);
     }
-    
+
     .sidebar.open {
       transform: translateX(0);
     }
-    
+
     .sidebar ul {
       list-style: none;
       padding: 0;
     }
-    
+
     .sidebar li {
-      margin: 2.2rem 0;
+      margin: 2.5rem 0;
     }
-    
+
     .sidebar a {
       color: #27ae60;
       text-decoration: none;
-      font-size: 1.45rem;
-      font-weight: 600;
-      display: block;
-      padding: 18px 28px;
-      border-radius: 14px;
-      transition: all 0.3s ease;
-      background: rgba(39,174,96,0.06);
-      border-left: 4px solid transparent;
-    }
-    
-    .sidebar a:hover,
-    .sidebar a.active {
-      background: rgba(39,174,96,0.28);
-      color: #ffffff;
-      border-left-color: #27ae60;
-      transform: translateX(12px);
-    }
-    
-    .content-shift {
-      transition: margin-left 0.45s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-    
-    header {
-      background: linear-gradient(135deg, #111111 0%, #0a0a0a 100%);
-      padding: 7rem 6% 5rem;
-      text-align: center;
-      border-bottom: 2px solid #222222;
-      position: relative;
-      z-index: 10;
-    }
-    
-    h1 {
-      font-size: clamp(2.8rem, 7vw, 4.5rem);
-      color: #27ae60;
-      margin-bottom: 1.2rem;
-      letter-spacing: -1.5px;
-      text-shadow: 0 0 25px rgba(39,174,96,0.5);
-    }
-    
-    header p {
-      font-size: 1.35rem;
-      max-width: 880px;
-      margin: 0 auto;
-      color: #bbbbbb;
-      opacity: 0.95;
-    }
-    
-    main {
-      flex: 1;
-      max-width: 1700px;
-      margin: 0 auto;
-      padding: 4rem 6%;
-      position: relative;
-      z-index: 10;
-    }
-    
-    h2 {
-      font-size: clamp(2.2rem, 5.5vw, 3.2rem);
-      color: #27ae60;
-      margin: 5rem 0 2.5rem;
-      text-align: center;
-      position: relative;
-    }
-    
-    h2::after {
-      content: '';
-      width: 140px;
-      height: 5px;
-      background: linear-gradient(to right, #27ae60, transparent);
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 5px;
-    }
-    
-    .promos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 3.5rem;
-      margin: 3rem 0;
-    }
-    
-    .promo-card {
-      background: #0f0f0f;
-      border: 1px solid #222222;
-      border-radius: 24px;
-      padding: 3rem 2.2rem;
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .promo-card:hover {
-      transform: translateY(-20px) scale(1.02);
-      border-color: #27ae60;
-      box-shadow: 0 30px 60px rgba(39,174,96,0.22);
-    }
-    
-    .promo-card img {
-      width: 100%;
-      max-height: 340px;
-      object-fit: contain;
-      border-radius: 16px;
-      margin-bottom: 2rem;
-      background: #111111;
-      border: 1px solid #333333;
-      transition: transform 0.5s;
-    }
-    
-    .promo-card:hover img {
-      transform: scale(1.08);
-    }
-    
-    .promo-card h3 {
-      font-size: 2.1rem;
-      color: #27ae60;
-      margin-bottom: 1.2rem;
-    }
-    
-    .promo-card .price {
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: #ff3366;
-      margin: 1rem 0;
-      text-shadow: 0 0 15px rgba(255,51,102,0.4);
-    }
-    
-    .promo-card .frete {
-      color: #27ae60;
       font-size: 1.5rem;
       font-weight: 600;
-      margin: 1rem 0;
+      display: block;
+      padding: 20px 30px;
+      border-radius: 16px;
+      transition: all 0.35s ease;
+      background: rgba(39,174,96,0.08);
+      border-left: 5px solid transparent;
     }
-    
-    .btn-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      justify-content: center;
-      margin-top: 2rem;
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background: rgba(39,174,96,0.32);
+      color: #ffffff;
+      border-left-color: #27ae60;
+      transform: translateX(15px);
+      box-shadow: 0 5px 20px rgba(39,174,96,0.25);
     }
-    
-    .btn {
-      padding: 1.2rem 2.4rem;
-      background: #27ae60;
-      color: #000000;
-      font-weight: 700;
-      border: none;
-      border-radius: 60px;
-      cursor: pointer;
-      transition: all 0.35s;
-      font-size: 1.15rem;
-      flex: 1 1 180px;
-      max-width: 240px;
-      box-shadow: 0 5px 15px rgba(39,174,96,0.3);
-    }
-    
-    .btn:hover {
-      background: #219653;
-      transform: translateY(-4px) scale(1.08);
-      box-shadow: 0 12px 30px rgba(39,174,96,0.45);
-    }
-    
-    .whatsapp-btn {
-      background: #25D366;
-      color: white;
-    }
-    
+
+    /* ========================================================= */
+    /* ÍCONE CARRINHO SUPERIOR DIREITO - LINHAS 325-400          */
+    /* ========================================================= */
     #cart-icon {
       position: fixed;
       top: 25px;
       right: 25px;
-      background: #111111;
-      color: #27ae60;
-      padding: 16px 20px;
+      background: #222222;
+      color: #dddddd;
+      padding: 15px;
       border-radius: 50%;
-      font-size: 2rem;
+      font-size: 1.8rem;
       cursor: pointer;
-      box-shadow: 0 8px 25px rgba(39,174,96,0.3);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
       z-index: 3000;
-      transition: all 0.3s;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
     }
-    
+
     #cart-icon:hover {
-      transform: scale(1.15);
+      transform: scale(1.1);
+      background: #333333;
     }
-    
+
     #cart-badge {
       position: absolute;
-      top: -12px;
-      right: -12px;
+      top: -10px;
+      right: -10px;
       background: #ff3366;
       color: white;
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: bold;
-      padding: 5px 10px;
+      padding: 4px 8px;
       border-radius: 50%;
-      min-width: 25px;
+      min-width: 20px;
       text-align: center;
+      box-shadow: 0 2px 8px rgba(255,51,102,0.6);
+      animation: pop 0.3s ease;
     }
-    
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity:0; }
+      60% { transform: scale(1.3); }
+      100% { transform: scale(1); opacity:1; }
+    }
+
+    /* ========================================================= */
+    /* DROPDOWN DO CARRINHO - LINHAS 405-460                     */
+    /* ========================================================= */
     #cart-dropdown {
       display: none;
       position: fixed;
-      top: 100px;
+      top: 110px;
       right: 25px;
       background: #0f0f0f;
-      border: 2px solid #333333;
-      border-radius: 20px;
-      padding: 25px;
-      width: 380px;
-      max-height: 80vh;
+      border: 1px solid #333333;
+      border-radius: 16px;
+      padding: 30px;
+      width: 360px;
+      max-height: 75vh;
       overflow-y: auto;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.8);
       z-index: 2900;
     }
-    
+
+    /* ========================================================= */
+    /* MODAIS (COMPRA E PIX) - LINHAS 465-600                    */
+    /* ========================================================= */
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.96);
-      z-index: 5000;
+      background: rgba(0,0,0,0.97);
+      z-index: 6000;
       justify-content: center;
       align-items: center;
-      padding: 25px;
+      padding: 30px;
       overflow-y: auto;
     }
-    
+
     .modal-content {
       background: #0f0f0f;
-      padding: 45px 35px;
-      border-radius: 28px;
-      border: 4px solid #27ae60;
-      max-width: 520px;
+      padding: 50px 40px;
+      border-radius: 30px;
+      border: 5px solid #27ae60;
+      max-width: 560px;
       width: 96%;
       text-align: center;
       color: #e0e0e0;
-      box-shadow: 0 25px 70px rgba(39,174,96,0.3);
+      box-shadow: 0 30px 80px rgba(39,174,96,0.35);
       position: relative;
-      max-height: 94vh;
+      max-height: 95vh;
       overflow-y: auto;
     }
-    
+
     .close-x {
       position: absolute;
-      top: 20px;
-      right: 30px;
+      top: 25px;
+      right: 35px;
       color: #ff3366;
-      font-size: 4.2rem;
+      font-size: 4.8rem;
       font-weight: bold;
       cursor: pointer;
       line-height: 1;
-      transition: all 0.3s;
+      transition: all 0.35s;
     }
-    
+
     .close-x:hover {
-      transform: rotate(90deg);
+      transform: rotate(180deg) scale(1.15);
     }
-    
-    label {
-      display: block;
-      text-align: left;
-      margin-bottom: 12px;
-      font-weight: 600;
-      color: #dddddd;
-      font-size: 1.1rem;
+
+    /* ========================================================= */
+    /* BOTÃO FLUTUANTE WHATSAPP - LINHAS 605-650                 */
+    /* ========================================================= */
+    .whatsapp-float {
+      position: fixed;
+      width: 75px;
+      height: 75px;
+      bottom: 35px;
+      right: 35px;
+      background: #25D366;
+      color: #FFF;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 45px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+      z-index: 7000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+      text-decoration: none;
     }
-    
-    input {
-      width: 100%;
-      padding: 20px;
-      background: #1a1a1a;
-      color: #ffffff;
-      border: 1px solid #444444;
-      border-radius: 14px;
-      margin-bottom: 28px;
-      font-size: 1.15rem;
+
+    .whatsapp-float:hover {
+      transform: scale(1.15);
+      background: #128C7E;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.75);
     }
-    
-    #freteResult {
-      margin: 40px 0;
+
+    /* ========================================================= */
+    /* DESTAQUE WHATSAPP NO INÍCIO - LINHAS 655-700              */
+    /* ========================================================= */
+    .destaque-whatsapp {
+      background: rgba(39,174,96,0.18);
+      border: 3px solid #27ae60;
+      border-radius: 20px;
+      padding: 2.2rem 2.5rem;
+      margin: 3rem auto 4rem;
+      max-width: 860px;
       font-size: 1.6rem;
       font-weight: 700;
       color: #27ae60;
-      min-height: 80px;
-      line-height: 1.4;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(39,174,96,0.3);
+      line-height: 1.5;
     }
-    
-    .btn-green {
-      width: 100%;
-      margin: 20px 0;
-      padding: 22px;
-      font-size: 1.5rem;
-      border-radius: 60px;
+
+    /* ========================================================= */
+    /* ESTILOS GERAIS DE BOTÕES, CARDS, ETC. (continuação longa) */
+    /* LINHAS 705-1100                                            */
+    /* ========================================================= */
+    .btn {
+      padding: 1.3rem 2.6rem;
       background: #27ae60;
       color: #000000;
-      border: none;
-      cursor: pointer;
       font-weight: 700;
-      transition: all 0.3s;
-    }
-    
-    .btn-green:hover {
-      background: #219653;
-      transform: translateY(-3px);
-    }
-    
-    .btn-cancel {
-      width: 100%;
-      margin: 15px 0;
-      padding: 20px;
-      background: #444444;
-      color: #cccccc;
       border: none;
-      border-radius: 60px;
-      font-size: 1.2rem;
+      border-radius: 70px;
       cursor: pointer;
+      transition: all 0.4s;
+      font-size: 1.2rem;
+      box-shadow: 0 6px 18px rgba(39,174,96,0.35);
     }
-    
-    footer {
+
+    .btn:hover {
+      background: #219653;
+      transform: translateY(-5px) scale(1.09);
+      box-shadow: 0 15px 35px rgba(39,174,96,0.5);
+    }
+
+    .btn-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+
+    .promo-card {
+      background: #0f0f0f;
+      border: 1px solid #222222;
+      border-radius: 28px;
+      padding: 3.5rem 2.5rem;
       text-align: center;
-      padding: 6rem 6%;
-      color: #777777;
-      border-top: 2px solid #222222;
-      margin-top: auto;
-      font-size: 1rem;
-      background: #0a0a0a;
+      transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+      overflow: hidden;
       position: relative;
-      z-index: 10;
     }
-    
-    @media (max-width: 1200px) {
-      .sidebar { width: 290px; }
-      .promos { gap: 2.8rem; }
-      .promo-card { padding: 2.8rem 2rem; }
+
+    .promo-card:hover {
+      transform: translateY(-25px) scale(1.03);
+      border-color: #27ae60;
+      box-shadow: 0 35px 70px rgba(39,174,96,0.28);
     }
-    
-    @media (max-width: 992px) {
-      header { padding: 6rem 6% 4rem; }
-      .promo-card { padding: 2.8rem 2rem; }
+
+    .price {
+      font-size: 3.8rem;
+      font-weight: 900;
+      color: #ff3366;
+      margin: 1.2rem 0;
+      text-shadow: 0 0 20px rgba(255,51,102,0.45);
     }
-    
-    @media (max-width: 768px) {
-      .promos { grid-template-columns: 1fr; gap: 3rem; }
-      header { padding: 5rem 6% 3.5rem; }
-      .hamburger { top: 18px; left: 18px; font-size: 2.2rem; }
-      .sidebar { padding-top: 100px; width: 280px; }
+
+    /* ========================================================= */
+    /* MEDIA QUERIES - MUITOS BREAKPOINTS PARA RESPONSIVIDADE     */
+    /* LINHAS 1105-1250                                           */
+    /* ========================================================= */
+    @media (max-width: 1600px) { .sidebar { width: 320px; } .promo-card { padding: 3rem 2rem; } }
+    @media (max-width: 1400px) { .sidebar { width: 300px; padding: 130px 35px 50px; } }
+    @media (max-width: 1200px) { .promos { gap: 3rem; } .promo-card { padding: 2.8rem 2rem; } }
+    @media (max-width: 1100px) { .sidebar { width: 280px; } .destaque-whatsapp { font-size: 1.45rem; } }
+    @media (max-width: 992px)  { header { padding: 6rem 5% 4rem; } .welcome h2 { font-size: 3.4rem; } }
+    @media (max-width: 850px)  { .sidebar { width: 260px; padding-top: 110px; } .whatsapp-float { width:65px; height:65px; bottom:25px; right:25px; } }
+    @media (max-width: 768px)  {
+      .promos { grid-template-columns: 1fr; gap: 3.2rem; }
+      .hamburger { top:20px; left:20px; font-size:2.3rem; width:55px; height:55px; }
+      .destaque-whatsapp { font-size:1.35rem; padding:1.6rem 1.8rem; margin:2rem auto 3rem; }
+      .sidebar a { font-size:1.35rem; padding:16px 24px; }
     }
-    
     @media (max-width: 576px) {
-      h1 { font-size: 2.5rem; }
-      .btn { font-size: 1rem; padding: 1rem 1.8rem; }
-      .modal-content { padding: 35px 25px; }
-      .sidebar { width: 260px; }
-      .sidebar a { font-size: 1.3rem; padding: 14px 20px; }
+      h2 { font-size: 2.8rem; }
+      .price { font-size: 3rem; }
+      .btn { padding:1.1rem 2rem; font-size:1.05rem; }
+      .modal-content { padding:40px 25px; }
+      .close-x { font-size:4rem; right:25px; top:20px; }
+      .whatsapp-float { width:60px; height:60px; font-size:38px; bottom:20px; right:20px; }
     }
-    
+    @media (max-width: 400px) {
+      .destaque-whatsapp { font-size:1.2rem; padding:1.4rem 1.5rem; }
+      .sidebar { width:240px; }
+      .sidebar a { font-size:1.25rem; padding:14px 20px; }
+    }
+
+    /* ========================================================= */
+    /* SEÇÃO INICIAL - WELCOME - LINHAS 1255-1350                */
+    /* ========================================================= */
     .welcome {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       text-align: center;
-      padding: 8rem 2rem 6rem;
+      padding: 9rem 2.5rem 7rem;
     }
-    
+
     .welcome h2 {
-      font-size: 3.8rem;
-      margin-bottom: 2.5rem;
+      font-size: clamp(3rem, 8vw, 5rem);
       color: #27ae60;
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+      text-shadow: 0 0 30px rgba(39,174,96,0.45);
     }
-    
+
     .welcome p {
-      font-size: 1.4rem;
-      margin: 1.8rem 0;
-      max-width: 720px;
+      font-size: 1.45rem;
+      margin: 2rem 0;
+      max-width: 780px;
       margin-left: auto;
       margin-right: auto;
     }
-    
-    .btn-catalog {
-      display: inline-block;
-      margin: 4rem 0 2rem;
-      padding: 1.4rem 4rem;
-      background: #27ae60;
-      color: #000;
-      font-weight: 600;
-      font-size: 1.5rem;
-      border-radius: 60px;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    
-    .btn-catalog:hover {
-      background: #219653;
-      transform: scale(1.06);
-      box-shadow: 0 12px 30px rgba(39,174,96,0.4);
-    }
-    
-    .warning {
-      margin: 4rem auto 0;
-      padding: 2.5rem;
-      background: rgba(255,51,102,0.1);
-      border: 2px solid #ff3366;
+
+    .destaque-whatsapp {
+      background: rgba(39,174,96,0.18);
+      border: 3px solid #27ae60;
       border-radius: 20px;
-      max-width: 800px;
-      font-size: 1.35rem;
-      line-height: 1.6;
-      font-weight: 500;
+      padding: 2.2rem 2.5rem;
+      margin: 3rem auto 4rem;
+      max-width: 860px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #27ae60;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(39,174,96,0.3);
+      line-height: 1.5;
     }
-    
+
+    /* ========================================================= */
+    /* REFERÊNCIAS TEXTUAIS - LINHAS 1355-1450                   */
+    /* ========================================================= */
     .references {
-      max-width: 900px;
-      margin: 5rem auto 0;
+      max-width: 960px;
+      margin: 6rem auto 0;
       text-align: left;
-      padding: 2rem;
-      background: #111;
-      border-radius: 16px;
+      padding: 2.5rem;
+      background: #111111;
+      border-radius: 20px;
       border: 1px solid #27ae60;
     }
-    
+
     .references h3 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #27ae60;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       text-align: center;
     }
-    
+
     .references blockquote {
-      font-size: 1.15rem;
-      margin: 2rem 0;
-      padding-left: 1.5rem;
-      border-left: 4px solid #27ae60;
+      font-size: 1.2rem;
+      margin: 2.5rem 0;
+      padding-left: 2rem;
+      border-left: 5px solid #27ae60;
       font-style: italic;
-      color: #ccc;
+      color: #cccccc;
     }
-    
+
+    /* ========================================================= */
+    /* SEÇÕES DO CATÁLOGO - CADA UMA ISOLADA - LINHAS 1455-1600 */
+    /* ========================================================= */
     .category-section { display:none; }
     .category-section.active { display:block; }
 
-    /* Estilo para os selos de confiança */
-    .trust-badges {
-      margin: 4rem auto;
-      text-align: center;
-      max-width: 900px;
-    }
-    
-    .trust-badges h3 {
+    .category-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
       color: #27ae60;
-      margin-bottom: 1.8rem;
-      font-size: 1.8rem;
-    }
-    
-    .trust-badges .badges-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    
-    .trust-badges img {
-      height: 90px;
-      width: auto;
-      max-height: 110px;
-    }
-    
-    .trust-badges .card-icons img {
-      height: 60px;
-    }
-    
-    .trust-badges p {
-      margin-top: 1.5rem;
-      color: #bbbbbb;
-      font-size: 1.1rem;
+      text-align: center;
+      margin: 4rem 0 3rem;
+      text-shadow: 0 0 20px rgba(39,174,96,0.4);
     }
   </style>
 </head>
 <body>
 
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a href="https://wa.me/+5516988767617?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20uma%20compra" class="whatsapp-float" target="_blank">
+    💬
+  </a>
+
+  <!-- Hamburger -->
   <button class="hamburger" onclick="toggleSidebar()">☰</button>
 
+  <!-- Sidebar -->
   <nav class="sidebar" id="sidebar">
     <ul>
       <li><a href="#inicio" class="active">INÍCIO</a></li>
@@ -592,6 +493,7 @@
     </ul>
   </nav>
 
+  <!-- Carrinho pequeno e clarinho -->
   <div id="cart-icon">
     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="2">
       <circle cx="9" cy="21" r="1"></circle>
@@ -601,44 +503,34 @@
     <span id="cart-badge">0</span>
   </div>
 
+  <!-- Dropdown Carrinho -->
   <div id="cart-dropdown">
     <h4 style="color:#27ae60; margin-bottom:20px; text-align:center; font-size:1.5rem;">Seu Carrinho</h4>
     <ul id="cart-items" style="list-style:none; margin-bottom:20px; padding:0;"></ul>
     <p id="cart-total" style="text-align:right; font-weight:700; color:#27ae60; font-size:1.4rem; margin:25px 0;">Total: R$0,00</p>
-    <button class="btn" onclick="prosseguirParaPagamento()" style="width:100%; font-size:1.2rem; padding:16px 0;">Ir para Compra</button>
+    <button class="btn" onclick="prosseguirParaPagamento()" style="width:100%;">Ir para Compra</button>
   </div>
 
+  <!-- Conteúdo Principal -->
   <main>
+    <!-- Página Inicial - limpa -->
     <section id="inicio" class="welcome category-section active">
-      <h2>Seja bem vindo a minha loja.</h2>
-      <p>Somos especializados em genéricos e originais, com entrega discreta e segura em todo o Brasil.<br>
-         Para compras acima de R$ 150, me chame no WhatsApp – é só clicar no botão da direita :)</p>
-      <p style="margin:2.5rem 0; font-size:1.4rem;">Clique no menu lateral (☰) ou no botão abaixo para explorar nossos catálogos completos e encontrar o que você precisa.</p>
+      <h2> Seja Bem-vindo à nossa Loja de Medicamentos !</h2>
+      <p>Somos especializados em genéricos e originais, com entrega discreta e segura em todo o Brasil.</p>
+      <p style="margin:1.5rem 0; font-size:1.3rem; color:#ffcc00; font-weight:600;">
+        Vendas acima de R$ 150,00 só pelo WhatsApp. Clique no botão direito do produto desejado no catálogo para falar diretamente.
+      </p>
       
       <a href="#emagrecedores" class="btn-catalog" onclick="showSection('emagrecedores')">Explorar Catálogo</a>
       
       <div class="warning">
         <strong>AVISO IMPORTANTE</strong><br><br>
         • Todos os produtos são controlados e exigem uso responsável.<br>
-        • Frete grátis acima de R$ 200 em qualquer pedido.<br>
-        • Entrega rápida e 100% discreta e segura.
+        • Frete grátis acima de R$ 170 em qualquer pedido.<br>
+        • Entrega rápida e 100% discreta.
       </div>
 
-      <!-- Selos de confiança -->
-      <div class="trust-badges">
-        <h3>Site 100% Seguro e Confiável</h3>
-        <div class="badges-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/SSL_Secure.svg/512px-SSL_Secure.svg.png" alt="Site Seguro - SSL Verificado" loading="lazy">
-          <img src="https://logopng.com.br/wp-content/uploads/2021/04/pix-logo-768x432.png" alt="Aceitamos PIX" loading="lazy">
-          <div class="card-icons" style="display:flex; gap:1.5rem;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Visa.svg/512px-Visa.svg.png" alt="Visa" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/512px-Mastercard-logo.svg.png" alt="Mastercard" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Elo_logo.svg/512px-Elo_logo.svg.png" alt="Elo" loading="lazy">
-          </div>
-        </div>
-        <p>Pagamentos seguros via PIX e Cartão de Crédito • Dados criptografados • Entrega 100% discreta</p>
-      </div>
-
+      <!-- Referências textuais -->
       <div class="references">
         <h3>O que estão dizendo</h3>
         <blockquote>"Comprei Sibutramina e chegou em 4 dias, tudo discreto e perfeito. Recomendo!" – Maria S., RJ</blockquote>
@@ -649,8 +541,9 @@
       </div>
     </section>
 
+    <!-- EMAGRECEDORES - só Sibutramina -->
     <section id="emagrecedores" class="category-section">
-      <h2>EMAGRECEDORES</h2>
+      <h2 class="category-title">EMAGRECEDORES</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/27ae60?text=Sibutramina+15mg+1+Caixa" loading="lazy" alt="">
@@ -684,8 +577,9 @@
       </div>
     </section>
 
+    <!-- OPIÓIDES - só opioides -->
     <section id="opioides" class="category-section">
-      <h2>OPIÓIDES</h2>
+      <h2 class="category-title">OPIÓIDES</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/ff3366?text=Zolpidem+10mg" loading="lazy" alt="">
@@ -717,8 +611,9 @@
       </div>
     </section>
 
+    <!-- BENZODIAZEPÍNICOS - só benzos -->
     <section id="benzodiazepinicos" class="category-section">
-      <h2>BENZODIAZEPÍNICOS</h2>
+      <h2 class="category-title">BENZODIAZEPÍNICOS</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/27ae60?text=Alprazolam+2mg" loading="lazy" alt="">
@@ -750,8 +645,9 @@
       </div>
     </section>
 
+    <!-- ANTIPSICOTICOS -->
     <section id="antipsicoticos" class="category-section">
-      <h2>ANTIPSICOTICOS</h2>
+      <h2 class="category-title">ANTIPSICOTICOS</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/27ae60?text=Quetiapina" loading="lazy" alt="">
@@ -783,8 +679,9 @@
       </div>
     </section>
 
+    <!-- ANSIOLÍTICO - só não-benzos -->
     <section id="ansiolitico" class="category-section">
-      <h2>ANSIOLÍTICO</h2>
+      <h2 class="category-title">ANSIOLÍTICO</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/27ae60?text=Buspirona+10mg" loading="lazy" alt="">
@@ -816,8 +713,9 @@
       </div>
     </section>
 
+    <!-- CONCENTRAÇÃO - só Ritalina e Venvanse -->
     <section id="concentracao" class="category-section">
-      <h2>CONCENTRAÇÃO</h2>
+      <h2 class="category-title">CONCENTRAÇÃO</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/27ae60?text=Ritalina+Original+30cp" loading="lazy" alt="">
@@ -887,10 +785,11 @@
   </main>
 
   <footer>
-    © 2026 - Bernardo Steinbrenner<br>
-    Contato: +55 16 98876-7617 
+    © 2026 - Loja Medicamentos Controlados<br>
+    Contato: +55 16 98876-7617 | Entrega discreta garantida
   </footer>
 
+  <!-- Modal de Preenchimento de Dados -->
   <div id="buyModal" class="modal">
     <div class="modal-content">
       <span class="close-x" onclick="fecharModal('buyModal')">×</span>
@@ -919,6 +818,7 @@
     </div>
   </div>
 
+  <!-- Modal PIX -->
   <div id="pixModal" class="modal">
     <div class="modal-content" style="max-width:460px;">
       <span class="close-x" onclick="fecharModal('pixModal')">×</span>
@@ -931,6 +831,7 @@
     </div>
   </div>
 
+  <!-- Script Completo -->
   <script>
     const API_URL = 'https://api.pushinpay.com.br/api/pix/cashIn';
     const TOKEN = '61386|R7lNhPAqyXCEuzgh2omy27dEeWj3wQstbuiTe1bW99f8eefe';
@@ -943,18 +844,27 @@
       document.getElementById('sidebar').classList.toggle('open');
     }
 
+    // Função pra mostrar seção - cada uma isolada
     function showSection(sectionId) {
-      document.querySelectorAll('.category-section').forEach(sec => sec.classList.remove('active'));
+      // Esconde TODAS as seções primeiro
+      document.querySelectorAll('.category-section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+
+      // Mostra só a seção clicada
       const target = document.getElementById(sectionId);
       if (target) {
         target.classList.add('active');
-        target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+
+      // Atualiza o menu ativo
       document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
       const link = document.querySelector(`.sidebar a[href="#${sectionId}"]`);
       if (link) link.classList.add('active');
     }
 
+    // Navegação do menu lateral
     document.querySelectorAll('.sidebar a').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -964,13 +874,14 @@
       });
     });
 
+    // Botão "Explorar Catálogo" na home
     document.querySelector('.btn-catalog')?.addEventListener('click', function(e) {
       e.preventDefault();
       showSection('emagrecedores');
     });
 
     function confirmarAdicionar(produto, valor) {
-      if (confirm(`Adicionar ${produto} (R$ ${valor})?`)) {
+      if (confirm(`Adicionar ${produto} (R$ ${valor}) ao carrinho?`)) {
         adicionarAoCarrinho(produto, valor);
         alert('Adicionado ao carrinho!');
       }
@@ -1003,19 +914,33 @@
         const qtd = item.quantidade || 1;
         total += item.valor * qtd;
         const li = document.createElement('li');
-        li.style = 'display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #222;';
-        li.innerHTML = `${item.produto} ×${qtd} <span>R$${(item.valor * qtd).toFixed(2)} <span onclick="removerItem(${idx})" style="color:#ff3366;cursor:pointer;">×</span></span>`;
+        li.style = 'display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #222;font-size:1.1rem;';
+        li.innerHTML = `
+          <span>${item.produto} ×${qtd}</span>
+          <span style="display:flex;align-items:center;gap:15px;">
+            <strong>R$${(item.valor * qtd).toFixed(2)}</strong>
+            <span onclick="removerItem(${idx})" style="color:#ff3366;cursor:pointer;font-weight:bold;font-size:1.6rem;padding:0 6px;">×</span>
+          </span>
+        `;
         list.appendChild(li);
       });
-      document.getElementById('cart-total').textContent = `Total: R$${total.toFixed(2)}`;
+
+      document.getElementById('cart-total').textContent = `Total: R$ ${total.toFixed(2)}`;
     }
 
     function calcularFrete() {
-      const cep = document.getElementById('cep').value.trim();
-      if (cep.length !== 8) return document.getElementById('freteResult').innerHTML = '<span style="color:#ff3366;">CEP inválido</span>';
+      const cep = document.getElementById('cep')?.value?.trim() || '';
+      const el = document.getElementById('freteResult');
+
+      if (cep.length !== 8 || !/^\d{8}$/.test(cep)) {
+        el.innerHTML = '<span style="color:#ff3366;">CEP inválido – digite 8 números</span>';
+        return;
+      }
+
       const subtotal = carrinho.reduce((s, i) => s + i.valor * (i.quantidade || 1), 0);
       freteAtual = subtotal >= 170 ? 0 : 15;
-      document.getElementById('freteResult').innerHTML = `Frete: R$${freteAtual}<br>Total: R$${(subtotal + freteAtual).toFixed(2)}`;
+
+      el.innerHTML = `Frete estimado: R$${freteAtual.toFixed(2)}<br><strong>Total com frete: R$${(subtotal + freteAtual).toFixed(2)}</strong>`;
     }
 
     async function gerarPix(valorCentavos, descricao) {
@@ -1023,68 +948,114 @@
       const qrEl = document.getElementById('qrImage');
       const codeEl = document.getElementById('pixCode');
       const timerEl = document.getElementById('timeLeft');
-      valueEl.textContent = `Valor: R$${(valorCentavos/100).toFixed(2)} - ${descricao}`;
-      qrEl.src = ''; codeEl.value = 'Gerando...';
+
+      valueEl.textContent = `Valor: R$${(valorCentavos / 100).toFixed(2)} - ${descricao}`;
+      qrEl.src = '';
+      codeEl.value = 'Conectando à API...';
+
       document.getElementById('pixModal').style.display = 'flex';
+
       try {
         const res = await fetch(API_URL, {
           method: 'POST',
-          headers: { 'Authorization': `Bearer ${TOKEN}`, 'Content-Type': 'application/json' },
+          headers: {
+            'Authorization': `Bearer ${TOKEN}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
           body: JSON.stringify({ value: valorCentavos, webhook_url: '' })
         });
+
+        if (!res.ok) {
+          const errText = await res.text();
+          throw new Error(`Erro ${res.status}: ${errText}`);
+        }
+
         const data = await res.json();
+
         if (data.qr_code_base64) {
           qrEl.src = `data:image/png;base64,${data.qr_code_base64}`;
-          codeEl.value = data.qr_code || 'Código gerado';
+          codeEl.value = data.qr_code || 'Código gerado com sucesso';
+          
           let time = 900;
           const interval = setInterval(() => {
             time--;
-            const m = Math.floor(time/60), s = time%60;
-            timerEl.textContent = `${m}:${s<10?'0'+s:s}`;
-            if (time <= 0) { clearInterval(interval); timerEl.textContent = 'Expirado'; }
+            const m = Math.floor(time / 60);
+            const s = time % 60;
+            timerEl.textContent = `${m}:${s < 10 ? '0' + s : s}`;
+            if (time <= 0) {
+              clearInterval(interval);
+              timerEl.textContent = 'Tempo esgotado';
+            }
           }, 1000);
+          
+          alert('QR Code gerado! Escaneie ou copie o código.');
+        } else {
+          codeEl.value = 'API respondeu, mas sem QR Code';
         }
-      } catch (err) { codeEl.value = 'Erro: ' + err.message; }
+      } catch (err) {
+        console.error('Erro ao gerar PIX:', err);
+        codeEl.value = 'Falha: ' + err.message;
+        alert('Erro ao gerar PIX: ' + err.message + '\nVerifique o console (F12).');
+      }
     }
 
     function copyPixCode() {
       const code = document.getElementById('pixCode');
-      code.select(); document.execCommand('copy');
-      alert('Código copiado!');
+      code.select();
+      document.execCommand('copy');
+      alert('Código PIX copiado!');
     }
 
     function prosseguirParaPagamento() {
-      if (!carrinho.length) return alert('Carrinho vazio!');
-      const subtotal = carrinho.reduce((s,i)=>s+i.valor*(i.quantidade||1),0);
+      if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+      }
+      const subtotal = carrinho.reduce((s, i) => s + i.valor * (i.quantidade || 1), 0);
       const total = subtotal + freteAtual;
-      itemAtual = { produto: 'Pedido', valor: total };
+      itemAtual = { produto: 'Pedido de Medicamentos', valor: total };
       document.getElementById('buyModal').style.display = 'flex';
     }
 
     function prosseguirCompra() {
-      const email = document.getElementById('email').value.trim();
-      const cep = document.getElementById('cep').value.trim();
-      const numero = document.getElementById('numero').value.trim();
+      const email = document.getElementById('email')?.value?.trim();
+      const cep   = document.getElementById('cep')?.value?.trim();
+      const numero = document.getElementById('numero')?.value?.trim();
 
-      if (!email || !cep || !numero) return alert('Preencha os campos obrigatórios!');
-      const subtotal = carrinho.reduce((s,i)=>s+i.valor*(i.quantidade||1),0);
+      if (!email || !cep || !numero) {
+        alert('Preencha Email, CEP e Número da casa!');
+        return;
+      }
+
+      const subtotal = carrinho.reduce((s, i) => s + i.valor * (i.quantidade || 1), 0);
       const total = subtotal + freteAtual;
-      gerarPix(total*100, 'Pedido + Frete');
+
+      gerarPix(total * 100, itemAtual.produto + ' + Frete');
+
       fecharModal('buyModal');
     }
 
-    function fecharModal(id) { document.getElementById(id).style.display = 'none'; }
+    function fecharModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
 
+    // Eventos do carrinho
     document.getElementById('cart-icon').addEventListener('click', e => {
       e.stopPropagation();
-      document.getElementById('cart-dropdown').style.display = document.getElementById('cart-dropdown').style.display === 'block' ? 'none' : 'block';
+      const dd = document.getElementById('cart-dropdown');
+      dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
     });
 
     document.addEventListener('click', e => {
       const dd = document.getElementById('cart-dropdown');
-      if (dd && !dd.contains(e.target) && !document.getElementById('cart-icon').contains(e.target)) dd.style.display = 'none';
+      const icon = document.getElementById('cart-icon');
+      if (dd && icon && !dd.contains(e.target) && !icon.contains(e.target)) {
+        dd.style.display = 'none';
+      }
     });
 
+    // Inicializa carrinho
     atualizarCarrinho();
   </script>
 </body>

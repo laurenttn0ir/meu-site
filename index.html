@@ -2,12 +2,12 @@
 <html lang="pt-br">
 <head>
   <!-- ==================================================
-       META TAGS E CONFIGURAÇÕES BÁSICAS - LINHAS 1-60
+       META TAGS E CONFIGURAÇÕES BÁSICAS - LINHAS 1-80
   ================================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Loja especializada em medicamentos controlados: emagrecedores (Sibutramina), concentração (Ritalina, Venvanse), opioides, benzodiazepínicos, antipsicóticos, ansiolíticos. Entrega discreta e segura em todo o Brasil. Genéricos e originais." />
-  <meta name="keywords" content="sibutramina, ritalina, venvanse, clonazepam, quetiapina, risperidona, alprazolam, diazepam, lorazepam, dimorf, zolpidem, medicamento controlado, compra online, entrega discreta, genéricos baratos" />
+  <meta name="description" content="Loja especializada em medicamentos controlados: emagrecedores (Sibutramina), concentração (Ritalina, Venvanse), opioides, benzodiazepínicos, antipsicóticos, ansiolíticos. Entrega discreta e segura em todo o Brasil. Genéricos e originais com preços acessíveis." />
+  <meta name="keywords" content="sibutramina, ritalina, venvanse, clonazepam, quetiapina, risperidona, alprazolam, diazepam, lorazepam, dimorf, zolpidem, medicamento controlado, compra online, entrega discreta, genéricos baratos, farmácia online" />
   <meta name="author" content="Bernardo Steinbrenner - Contato WhatsApp +55 16 98876-7617" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#000000" />
@@ -30,7 +30,7 @@
   ================================================== -->
   <style>
     /* ========================================================= */
-    /* RESET GLOBAL E CONFIGURAÇÕES BASE - LINHAS 80-160         */
+    /* RESET GLOBAL E CONFIGURAÇÕES BASE - LINHAS 90-180         */
     /* ========================================================= */
     * {
       margin: 0;
@@ -55,7 +55,7 @@
     }
 
     /* ========================================================= */
-    /* BOTÃO HAMBURGER - MENU LATERAL - LINHAS 165-220           */
+    /* BOTÃO HAMBURGER - MENU LATERAL - LINHAS 185-250           */
     /* ========================================================= */
     .hamburger {
       position: fixed;
@@ -84,7 +84,7 @@
     }
 
     /* ========================================================= */
-    /* SIDEBAR LATERAL ESQUERDA - LINHAS 225-320                 */
+    /* SIDEBAR LATERAL ESQUERDA - LINHAS 255-350                 */
     /* ========================================================= */
     .sidebar {
       position: fixed;
@@ -138,7 +138,7 @@
     }
 
     /* ========================================================= */
-    /* ÍCONE CARRINHO SUPERIOR DIREITO - LINHAS 325-400          */
+    /* ÍCONE CARRINHO SUPERIOR DIREITO - LINHAS 355-420          */
     /* ========================================================= */
     #cart-icon {
       position: fixed;
@@ -188,7 +188,7 @@
     }
 
     /* ========================================================= */
-    /* DROPDOWN DO CARRINHO - LINHAS 405-460                     */
+    /* DROPDOWN DO CARRINHO - LINHAS 425-480                     */
     /* ========================================================= */
     #cart-dropdown {
       display: none;
@@ -207,7 +207,7 @@
     }
 
     /* ========================================================= */
-    /* MODAIS (COMPRA E PIX) - LINHAS 465-600                    */
+    /* MODAIS (COMPRA E PIX) - LINHAS 485-620                    */
     /* ========================================================= */
     .modal {
       display: none;
@@ -253,7 +253,7 @@
     }
 
     /* ========================================================= */
-    /* BOTÃO FLUTUANTE WHATSAPP - LINHAS 605-650                 */
+    /* BOTÃO FLUTUANTE WHATSAPP - LINHAS 625-670                 */
     /* ========================================================= */
     .whatsapp-float {
       position: fixed;
@@ -282,7 +282,7 @@
     }
 
     /* ========================================================= */
-    /* DESTAQUE WHATSAPP NO INÍCIO - LINHAS 655-700              */
+    /* DESTAQUE WHATSAPP NO INÍCIO - LINHAS 675-720              */
     /* ========================================================= */
     .destaque-whatsapp {
       background: rgba(39,174,96,0.18);
@@ -301,7 +301,7 @@
 
     /* ========================================================= */
     /* ESTILOS GERAIS DE BOTÕES, CARDS, ETC. (continuação longa) */
-    /* LINHAS 705-1100                                            */
+    /* LINHAS 725-1100                                            */
     /* ========================================================= */
     .btn {
       padding: 1.3rem 2.6rem;
@@ -472,6 +472,12 @@
 </head>
 <body>
 
+  <!-- Áudio da música (toca baixinho após interação) -->
+  <audio id="backgroundMusic" loop>
+    <source src="https://www.youtube.com/watch?v=L_T0zQbfeWA" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
   <!-- BOTÃO FLUTUANTE WHATSAPP -->
   <a href="https://wa.me/+5516988767617?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20uma%20compra" class="whatsapp-float" target="_blank">
     💬
@@ -515,13 +521,13 @@
   <main>
     <!-- Página Inicial - limpa -->
     <section id="inicio" class="welcome category-section active">
-      <h2> Seja Bem-vindo à nossa Loja de Medicamentos !</h2>
+      <h2>Seja bem vindo!</h2>
       <p>Somos especializados em genéricos e originais, com entrega discreta e segura em todo o Brasil.</p>
       <p style="margin:1.5rem 0; font-size:1.3rem; color:#ffcc00; font-weight:600;">
         Vendas acima de R$ 150,00 só pelo WhatsApp. Clique no botão direito do produto desejado no catálogo para falar diretamente.
       </p>
       
-      <a href="#emagrecedores" class="btn-catalog" onclick="showSection('emagrecedores')">Explorar Catálogo</a>
+      <a href="#emagrecedores" class="btn-catalog" onclick="abrirCatalogo()">Explorar Catálogo</a>
       
       <div class="warning">
         <strong>AVISO IMPORTANTE</strong><br><br>
@@ -541,7 +547,7 @@
       </div>
     </section>
 
-    <!-- EMAGRECEDORES - só Sibutramina -->
+    <!-- EMAGRECEDORES -->
     <section id="emagrecedores" class="category-section">
       <h2 class="category-title">EMAGRECEDORES</h2>
       <div class="promos">
@@ -577,7 +583,7 @@
       </div>
     </section>
 
-    <!-- OPIÓIDES - só opioides -->
+    <!-- OPIÓIDES -->
     <section id="opioides" class="category-section">
       <h2 class="category-title">OPIÓIDES</h2>
       <div class="promos">
@@ -611,7 +617,7 @@
       </div>
     </section>
 
-    <!-- BENZODIAZEPÍNICOS - só benzos -->
+    <!-- BENZODIAZEPÍNICOS -->
     <section id="benzodiazepinicos" class="category-section">
       <h2 class="category-title">BENZODIAZEPÍNICOS</h2>
       <div class="promos">
@@ -679,7 +685,7 @@
       </div>
     </section>
 
-    <!-- ANSIOLÍTICO - só não-benzos -->
+    <!-- ANSIOLÍTICO -->
     <section id="ansiolitico" class="category-section">
       <h2 class="category-title">ANSIOLÍTICO</h2>
       <div class="promos">
@@ -713,7 +719,7 @@
       </div>
     </section>
 
-    <!-- CONCENTRAÇÃO - só Ritalina e Venvanse -->
+    <!-- CONCENTRAÇÃO -->
     <section id="concentracao" class="category-section">
       <h2 class="category-title">CONCENTRAÇÃO</h2>
       <div class="promos">
@@ -785,8 +791,8 @@
   </main>
 
   <footer>
-    © 2026 - Loja Medicamentos Controlados<br>
-    Contato: +55 16 98876-7617 | Entrega discreta garantida
+    © 2026 - Bernardo Steinbrenner. <br>
+    Contato: +55 16 98876-7617 
   </footer>
 
   <!-- Modal de Preenchimento de Dados -->
@@ -840,28 +846,36 @@
     let itemAtual = {};
     let freteAtual = 0;
 
+    const music = document.getElementById('backgroundMusic');
+
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('open');
     }
 
-    // Função pra mostrar seção - cada uma isolada
+    // Função pra mostrar seção
     function showSection(sectionId) {
-      // Esconde TODAS as seções primeiro
-      document.querySelectorAll('.category-section').forEach(sec => {
-        sec.classList.remove('active');
-      });
-
-      // Mostra só a seção clicada
+      document.querySelectorAll('.category-section').forEach(sec => sec.classList.remove('active'));
       const target = document.getElementById(sectionId);
       if (target) {
         target.classList.add('active');
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.scrollIntoView({ behavior: 'smooth' });
       }
-
-      // Atualiza o menu ativo
       document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
       const link = document.querySelector(`.sidebar a[href="#${sectionId}"]`);
       if (link) link.classList.add('active');
+    }
+
+    // Abre catálogo e toca música
+    function abrirCatalogo() {
+      showSection('emagrecedores'); // abre o catálogo automaticamente
+
+      // Toca a música baixinho após interação
+      music.volume = 0.15; // bem baixinho
+      music.play().then(() => {
+        console.log('Música tocando baixinho');
+      }).catch(err => {
+        console.log('Autoplay bloqueado, precisa de mais interação:', err);
+      });
     }
 
     // Navegação do menu lateral
@@ -871,17 +885,23 @@
         const targetId = this.getAttribute('href').substring(1);
         showSection(targetId);
         toggleSidebar();
+
+        // Toca música se já interagiu
+        if (music.paused) {
+          music.volume = 0.15;
+          music.play().catch(() => {});
+        }
       });
     });
 
     // Botão "Explorar Catálogo" na home
     document.querySelector('.btn-catalog')?.addEventListener('click', function(e) {
       e.preventDefault();
-      showSection('emagrecedores');
+      abrirCatalogo();
     });
 
     function confirmarAdicionar(produto, valor) {
-      if (confirm(`Adicionar ${produto} (R$ ${valor}) ao carrinho?`)) {
+      if (confirm(`Adicionar ${produto} (R$ ${valor})?`)) {
         adicionarAoCarrinho(produto, valor);
         alert('Adicionado ao carrinho!');
       }

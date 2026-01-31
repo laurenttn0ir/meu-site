@@ -1,630 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <!-- ==================================================
-       META TAGS E CONFIGURAÇÕES BÁSICAS - LINHAS 1-80
-  ================================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Loja especializada em medicamentos controlados: emagrecedores (Sibutramina), concentração (Ritalina, Venvanse), opioides, benzodiazepínicos, antipsicóticos, ansiolíticos. Entrega discreta e segura em todo o Brasil. Genéricos e originais com preços acessíveis." />
-  <meta name="keywords" content="sibutramina, ritalina, venvanse, clonazepam, quetiapina, risperidona, alprazolam, diazepam, lorazepam, dimorf, zolpidem, medicamento controlado, compra online, entrega discreta, genéricos baratos, farmácia online" />
-  <meta name="author" content="Bernardo Steinbrenner - Contato WhatsApp +55 16 98876-7617" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <title>MELHOR PHARMACY DO ANO 2026 | Entrega Discreta e Segura</title>
-
-  <!-- Google Fonts - Poppins com todos os pesos -->
+  <title>MEDICAMENTOS CONTROLADOS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Favicon simples -->
-  <link rel="icon" href="https://via.placeholder.com/32/27ae60/000?text=RX" type="image/x-icon">
-  <link rel="apple-touch-icon" href="https://via.placeholder.com/180/27ae60/000?text=RX">
-
-  <!-- ==================================================
-       ESTILOS CSS - EXPANDIDO PARA +1200 LINHAS
-  ================================================== -->
   <style>
-    /* ========================================================= */
-    /* RESET GLOBAL E CONFIGURAÇÕES BASE - LINHAS 90-180         */
-    /* ========================================================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; background:#000; color:#e0e0e0; line-height:1.6; min-height:100vh; overflow-x:hidden; }
+    
+    .hamburger { position:fixed; top:25px; left:25px; z-index:4000; background:#111; color:#27ae60; border:none; font-size:2.4rem; width:60px; height:60px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 25px rgba(39,174,96,0.25); transition:all 0.35s; }
+    .hamburger:hover { transform:scale(1.1); }
+    
+    .sidebar { position:fixed; left:0; top:0; bottom:0; width:320px; background:#000; border-right:1px solid #222; transform:translateX(-100%); transition:transform 0.45s; z-index:3500; padding:120px 35px 50px; overflow-y:auto; }
+    .sidebar.open { transform:translateX(0); }
+    
+    .sidebar ul { list-style:none; padding:0; }
+    .sidebar li { margin:2.2rem 0; }
+    .sidebar a { color:#27ae60; text-decoration:none; font-size:1.45rem; font-weight:600; display:block; padding:18px 28px; border-radius:14px; transition:all 0.3s; background:rgba(39,174,96,0.06); border-left:4px solid transparent; }
+    .sidebar a:hover,.sidebar a.active { background:rgba(39,174,96,0.28); color:#fff; border-left-color:#27ae60; transform:translateX(12px); }
+    
+    main { flex:1; max-width:1700px; margin:0 auto; padding:4rem 6%; }
+    h2 { font-size:clamp(2.2rem,5.5vw,3.2rem); color:#27ae60; margin:5rem 0 2.5rem; text-align:center; }
+    
+    .promos { display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:3.5rem; margin:3rem 0; }
+    .promo-card { 
+      background:#0f0f0f; border:1px solid #222; border-radius:24px; 
+      padding:3rem 2.2rem; text-align:center; transition:all 0.4s; 
     }
-
-    html, body {
-      height: 100%;
-      font-family: 'Poppins', sans-serif;
-      background: #000000;
-      color: #e0e0e0;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    /* ========================================================= */
-    /* EFEITO DE NEVE - SÓ ATIVA APÓS CLIQUE - LINHAS 185-250   */
-    /* ========================================================= */
-    #snow-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-      display: none; /* começa escondido */
-    }
-
-    .snowflake {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(100vh);
-      }
-    }
-
-    /* ========================================================= */
-    /* BOTÃO HAMBURGER - MENU LATERAL - LINHAS 255-320           */
-    /* ========================================================= */
-    .hamburger {
-      position: fixed;
-      top: 25px;
-      left: 25px;
-      z-index: 5000;
-      background: #111111;
-      color: #27ae60;
-      border: none;
-      font-size: 2.6rem;
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 30px rgba(39,174,96,0.28);
-      transition: all 0.4s ease;
-    }
-
-    .hamburger:hover {
-      transform: scale(1.12) rotate(90deg);
-      background: #1a1a1a;
-      box-shadow: 0 15px 40px rgba(39,174,96,0.4);
-    }
-
-    /* ========================================================= */
-    /* SIDEBAR LATERAL ESQUERDA - LINHAS 325-420                 */
-    /* ========================================================= */
-    .sidebar {
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 340px;
-      background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
-      border-right: 1px solid #222222;
-      transform: translateX(-100%);
-      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-      z-index: 4500;
-      padding: 140px 40px 60px;
-      overflow-y: auto;
-      box-shadow: 8px 0 40px rgba(0,0,0,0.85);
-    }
-
-    .sidebar.open {
-      transform: translateX(0);
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .sidebar li {
-      margin: 2.5rem 0;
-    }
-
-    .sidebar a {
-      color: #27ae60;
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-      display: block;
-      padding: 20px 30px;
-      border-radius: 16px;
-      transition: all 0.35s ease;
-      background: rgba(39,174,96,0.08);
-      border-left: 5px solid transparent;
-    }
-
-    .sidebar a:hover,
-    .sidebar a.active {
-      background: rgba(39,174,96,0.32);
-      color: #ffffff;
-      border-left-color: #27ae60;
-      transform: translateX(15px);
-      box-shadow: 0 5px 20px rgba(39,174,96,0.25);
-    }
-
-    /* ========================================================= */
-    /* ÍCONE CARRINHO - LINHAS 425-490                           */
-    /* ========================================================= */
-    #cart-icon {
-      position: fixed;
-      top: 25px;
-      right: 25px;
-      background: #222222;
-      color: #dddddd;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 1.8rem;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-      z-index: 3000;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    #cart-icon:hover {
-      transform: scale(1.1);
-      background: #333333;
-    }
-
-    #cart-badge {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      background: #ff3366;
-      color: white;
-      font-size: 0.9rem;
-      font-weight: bold;
-      padding: 4px 8px;
-      border-radius: 50%;
-      min-width: 20px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(255,51,102,0.6);
-      animation: pop 0.3s ease;
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0.5); opacity:0; }
-      60% { transform: scale(1.3); }
-      100% { transform: scale(1); opacity:1; }
-    }
-
-    /* ========================================================= */
-    /* DROPDOWN DO CARRINHO - LINHAS 495-550                     */
-    /* ========================================================= */
-    #cart-dropdown {
-      display: none;
-      position: fixed;
-      top: 110px;
-      right: 25px;
-      background: #0f0f0f;
-      border: 1px solid #333333;
-      border-radius: 16px;
-      padding: 30px;
-      width: 360px;
-      max-height: 75vh;
-      overflow-y: auto;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.8);
-      z-index: 2900;
-    }
-
-    /* ========================================================= */
-    /* MODAIS (COMPRA E PIX) - LINHAS 555-700                    */
-    /* ========================================================= */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.97);
-      z-index: 6000;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      overflow-y: auto;
-    }
-
-    .modal-content {
-      background: #0f0f0f;
-      padding: 50px 40px;
-      border-radius: 30px;
-      border: 5px solid #27ae60;
-      max-width: 560px;
-      width: 96%;
-      text-align: center;
-      color: #e0e0e0;
-      box-shadow: 0 30px 80px rgba(39,174,96,0.35);
-      position: relative;
-      max-height: 95vh;
-      overflow-y: auto;
-    }
-
-    .close-x {
-      position: absolute;
-      top: 25px;
-      right: 35px;
-      color: #ff3366;
-      font-size: 4.8rem;
-      font-weight: bold;
-      cursor: pointer;
-      line-height: 1;
-      transition: all 0.35s;
-    }
-
-    .close-x:hover {
-      transform: rotate(180deg) scale(1.15);
-    }
-
-    label {
-      display: block;
-      text-align: left;
-      margin-bottom: 12px;
-      font-weight: 600;
-      color: #dddddd;
-      font-size: 1.1rem;
-    }
-
-    input {
-      width: 100%;
-      padding: 20px;
-      background: #1a1a1a;
-      color: #ffffff;
-      border: 1px solid #444444;
-      border-radius: 14px;
-      margin-bottom: 28px;
-      font-size: 1.15rem;
-    }
-
-    #freteResult {
-      margin: 40px 0;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #27ae60;
-      min-height: 80px;
-      line-height: 1.4;
-    }
-
-    .btn-green {
-      width: 100%;
-      margin: 20px 0;
-      padding: 22px;
-      font-size: 1.5rem;
-      border-radius: 60px;
-      background: #27ae60;
-      color: #000000;
-      border: none;
-      cursor: pointer;
-      font-weight: 700;
-      transition: all 0.3s;
-    }
-
-    .btn-green:hover {
-      background: #219653;
-      transform: translateY(-3px);
-    }
-
-    .btn-cancel {
-      width: 100%;
-      margin: 15px 0;
-      padding: 20px;
-      background: #444444;
-      color: #cccccc;
-      border: none;
-      border-radius: 60px;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
-    /* ========================================================= */
-    /* QR CODE FIXO PARA VALORES BAIXOS - LINHAS 705-750         */
-    /* ========================================================= */
-    .qr-low-value {
-      display: none;
-      margin: 2rem auto;
-      text-align: center;
-    }
-
-    .qr-low-value img {
-      width: 220px;
-      height: 220px;
-      border: 5px solid #27ae60;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(39,174,96,0.3);
-    }
-
-    .qr-low-value p {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: #27ae60;
-      font-weight: 600;
-    }
-
-    /* ========================================================= */
-    /* BOTÃO FLUTUANTE WHATSAPP - LINHAS 755-800                 */
-    /* ========================================================= */
-    .whatsapp-float {
-      position: fixed;
-      width: 75px;
-      height: 75px;
-      bottom: 35px;
-      right: 35px;
-      background: #25D366;
-      color: #FFF;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 45px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-      z-index: 7000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.4s ease;
-      text-decoration: none;
-    }
-
-    .whatsapp-float:hover {
-      transform: scale(1.15);
-      background: #128C7E;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.75);
-    }
-
-    /* ========================================================= */
-    /* DESTAQUE WHATSAPP NO INÍCIO - LINHAS 805-850              */
-    /* ========================================================= */
-    .destaque-whatsapp {
-      background: rgba(39,174,96,0.18);
-      border: 3px solid #27ae60;
-      border-radius: 20px;
-      padding: 2.2rem 2.5rem;
-      margin: 3rem auto 4rem;
-      max-width: 860px;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #27ae60;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(39,174,96,0.3);
-      line-height: 1.5;
-    }
-
-    /* ========================================================= */
-    /* ESTILOS GERAIS DE BOTÕES, CARDS, ETC. (continuação longa) */
-    /* LINHAS 855-1150                                            */
-    /* ========================================================= */
-    .btn {
-      padding: 1.3rem 2.6rem;
-      background: #27ae60;
-      color: #000000;
-      font-weight: 700;
-      border: none;
-      border-radius: 70px;
-      cursor: pointer;
-      transition: all 0.4s;
-      font-size: 1.2rem;
-      box-shadow: 0 6px 18px rgba(39,174,96,0.35);
-    }
-
-    .btn:hover {
-      background: #219653;
-      transform: translateY(-5px) scale(1.09);
-      box-shadow: 0 15px 35px rgba(39,174,96,0.5);
-    }
-
-    .btn-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      margin-top: 2.5rem;
-    }
-
-    .promo-card {
-      background: #0f0f0f;
-      border: 1px solid #222222;
-      border-radius: 28px;
-      padding: 3.5rem 2.5rem;
-      text-align: center;
-      transition: all 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.4);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .promo-card:hover {
-      transform: translateY(-25px) scale(1.03);
-      border-color: #27ae60;
-      box-shadow: 0 35px 70px rgba(39,174,96,0.28);
-    }
-
-    .price {
-      font-size: 3.8rem;
-      font-weight: 900;
-      color: #ff3366;
-      margin: 1.2rem 0;
-      text-shadow: 0 0 20px rgba(255,51,102,0.45);
-    }
-
-    /* ========================================================= */
-    /* MEDIA QUERIES - MUITOS BREAKPOINTS PARA RESPONSIVIDADE     */
-    /* LINHAS 1155-1300                                           */
-    /* ========================================================= */
-    @media (max-width: 1600px) { .sidebar { width: 320px; } .promo-card { padding: 3rem 2rem; } }
-    @media (max-width: 1400px) { .sidebar { width: 300px; padding: 130px 35px 50px; } }
-    @media (max-width: 1200px) { .promos { gap: 3rem; } .promo-card { padding: 2.8rem 2rem; } }
-    @media (max-width: 1100px) { .sidebar { width: 280px; } .destaque-whatsapp { font-size: 1.45rem; } }
-    @media (max-width: 992px)  { header { padding: 6rem 5% 4rem; } .welcome h2 { font-size: 3.4rem; } }
-    @media (max-width: 850px)  { .sidebar { width: 260px; padding-top: 110px; } .whatsapp-float { width:65px; height:65px; bottom:25px; right:25px; } }
-    @media (max-width: 768px)  {
-      .promos { grid-template-columns: 1fr; gap: 3.2rem; }
-      .hamburger { top:20px; left:20px; font-size:2.3rem; width:55px; height:55px; }
-      .destaque-whatsapp { font-size:1.35rem; padding:1.6rem 1.8rem; margin:2rem auto 3rem; }
-      .sidebar a { font-size:1.35rem; padding:16px 24px; }
-    }
-    @media (max-width: 576px) {
-      h2 { font-size: 2.8rem; }
-      .price { font-size: 3rem; }
-      .btn { padding:1.1rem 2rem; font-size:1.05rem; }
-      .modal-content { padding:40px 25px; }
-      .close-x { font-size:4rem; right:25px; top:20px; }
-      .whatsapp-float { width:60px; height:60px; font-size:38px; bottom:20px; right:20px; }
-    }
-    @media (max-width: 400px) {
-      .destaque-whatsapp { font-size:1.2rem; padding:1.4rem 1.5rem; }
-      .sidebar { width:240px; }
-      .sidebar a { font-size:1.25rem; padding:14px 20px; }
-    }
-
-    /* ========================================================= */
-    /* SEÇÃO INICIAL - WELCOME - LINHAS 1305-1400                */
-    /* ========================================================= */
-    .welcome {
-      max-width: 960px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 9rem 2.5rem 7rem;
-    }
-
-    .welcome h2 {
-      font-size: clamp(3rem, 8vw, 5rem);
-      color: #27ae60;
-      margin-bottom: 1.5rem;
-      letter-spacing: -1px;
-      text-shadow: 0 0 30px rgba(39,174,96,0.45);
-    }
-
-    .welcome p {
-      font-size: 1.45rem;
-      margin: 2rem 0;
-      max-width: 780px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .destaque-whatsapp {
-      background: rgba(39,174,96,0.18);
-      border: 3px solid #27ae60;
-      border-radius: 20px;
-      padding: 2.2rem 2.5rem;
-      margin: 3rem auto 4rem;
-      max-width: 860px;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #27ae60;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(39,174,96,0.3);
-      line-height: 1.5;
-    }
-
-    /* ========================================================= */
-    /* REFERÊNCIAS TEXTUAIS - LINHAS 1405-1500                   */
-    /* ========================================================= */
-    .references {
-      max-width: 960px;
-      margin: 6rem auto 0;
-      text-align: left;
-      padding: 2.5rem;
-      background: #111111;
-      border-radius: 20px;
-      border: 1px solid #27ae60;
-    }
-
-    .references h3 {
-      font-size: 2rem;
-      color: #27ae60;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .references blockquote {
-      font-size: 1.2rem;
-      margin: 2.5rem 0;
-      padding-left: 2rem;
-      border-left: 5px solid #27ae60;
-      font-style: italic;
-      color: #cccccc;
-    }
-
-    /* ========================================================= */
-    /* SEÇÕES DO CATÁLOGO - CADA UMA ISOLADA - LINHAS 1505-1700 */
-    /* ========================================================= */
+    .promo-card:hover { transform:translateY(-20px); border-color:#27ae60; box-shadow:0 30px 60px rgba(39,174,96,0.22); }
+    .promo-card img { width:100%; max-height:340px; object-fit:contain; border-radius:16px; margin-bottom:2rem; background:#111; border:1px solid #333; }
+    .promo-card h3 { font-size:2.1rem; color:#27ae60; margin-bottom:1.2rem; }
+    .promo-card .price { font-size:3.5rem; font-weight:800; color:#ff3366; margin:1rem 0; }
+    .promo-card .frete { color:#27ae60; font-size:1.5rem; font-weight:600; margin:1rem 0; }
+    .btn-wrapper { display:flex; flex-wrap:wrap; gap:1.2rem; justify-content:center; margin-top:2rem; }
+    .btn { padding:1.2rem 2.4rem; background:#27ae60; color:#000; font-weight:700; border:none; border-radius:60px; cursor:pointer; transition:all 0.35s; font-size:1.15rem; flex:1 1 180px; max-width:240px; box-shadow:0 5px 15px rgba(39,174,96,0.3); }
+    .btn:hover { background:#219653; transform:translateY(-4px) scale(1.08); box-shadow:0 12px 30px rgba(39,174,96,0.45); }
+    .whatsapp-btn { background:#25D366; color:white; }
+    
+    #cart-icon { position:fixed; top:25px; right:25px; background:#111; color:#27ae60; padding:16px 20px; border-radius:50%; font-size:2rem; cursor:pointer; box-shadow:0 8px 25px rgba(39,174,96,0.3); z-index:3000; transition:all 0.3s; }
+    #cart-icon:hover { transform:scale(1.15); }
+    #cart-badge { position:absolute; top:-12px; right:-12px; background:#ff3366; color:white; font-size:1rem; font-weight:bold; padding:5px 10px; border-radius:50%; min-width:25px; text-align:center; }
+    
+    #cart-dropdown { display:none; position:fixed; top:100px; right:25px; background:#0f0f0f; border:2px solid #333; border-radius:20px; padding:25px; width:380px; max-height:80vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,0.9); z-index:2900; }
+    
+    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.96); z-index:5000; justify-content:center; align-items:center; padding:25px; overflow-y:auto; }
+    .modal-content { background:#0f0f0f; padding:45px 35px; border-radius:28px; border:4px solid #27ae60; max-width:520px; width:96%; text-align:center; box-shadow:0 25px 70px rgba(39,174,96,0.3); position:relative; max-height:94vh; overflow-y:auto; }
+    .close-x { position:absolute; top:20px; right:30px; color:#ff3366; font-size:4.2rem; font-weight:bold; cursor:pointer; line-height:1; transition:all 0.3s; }
+    .close-x:hover { transform:rotate(90deg); }
+    
+    label { display:block; text-align:left; margin-bottom:12px; font-weight:600; color:#ddd; font-size:1.1rem; }
+    input { width:100%; padding:20px; background:#1a1a1a; color:#fff; border:1px solid #444; border-radius:14px; margin-bottom:28px; font-size:1.15rem; }
+    #freteResult { margin:40px 0; font-size:1.6rem; font-weight:700; color:#27ae60; min-height:80px; line-height:1.4; }
+    .btn-green { width:100%; margin:20px 0; padding:22px; font-size:1.5rem; border-radius:60px; background:#27ae60; color:#000; border:none; cursor:pointer; font-weight:700; transition:all 0.3s; }
+    .btn-green:hover { background:#219653; transform:translateY(-3px); }
+    .btn-cancel { width:100%; margin:15px 0; padding:20px; background:#444; color:#ccc; border:none; border-radius:60px; font-size:1.2rem; cursor:pointer; }
+    
+    footer { text-align:center; padding:6rem 6%; color:#777; border-top:2px solid #222; margin-top:auto; font-size:1rem; background:#0a0a0a; }
+    
     .category-section { display:none; }
     .category-section.active { display:block; }
-
-    .category-title {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      color: #27ae60;
-      text-align: center;
-      margin: 4rem 0 3rem;
-      text-shadow: 0 0 20px rgba(39,174,96,0.4);
-    }
-
-    .qr-low-value {
-      display: none;
-      margin: 2rem auto;
-      text-align: center;
-    }
-
-    .qr-low-value img {
-      width: 220px;
-      height: 220px;
-      border: 5px solid #27ae60;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(39,174,96,0.3);
-    }
-
-    .qr-low-value p {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: #27ae60;
-      font-weight: 600;
-    }
+    
+    .welcome { max-width:900px; margin:0 auto; text-align:center; padding:8rem 2rem 6rem; }
+    .btn-catalog { display:inline-block; margin:4rem 0 2rem; padding:1.4rem 4rem; background:#27ae60; color:#000; font-weight:600; font-size:1.5rem; border-radius:60px; text-decoration:none; transition:all 0.3s; }
+    .btn-catalog:hover { background:#219653; transform:scale(1.06); box-shadow:0 12px 30px rgba(39,174,96,0.4); }
+    .warning { margin:4rem auto 0; padding:2.5rem; background:rgba(255,51,102,0.1); border:2px solid #ff3366; border-radius:20px; max-width:800px; font-size:1.35rem; line-height:1.6; font-weight:500; }
+    .references { max-width:900px; margin:5rem auto 0; text-align:left; padding:2rem; background:#111; border-radius:16px; border:1px solid #27ae60; }
+    .references h3 { font-size:1.8rem; color:#27ae60; margin-bottom:1.5rem; text-align:center; }
+    .references blockquote { font-size:1.15rem; margin:2rem 0; padding-left:1.5rem; border-left:4px solid #27ae60; font-style:italic; color:#ccc; }
   </style>
 </head>
 <body>
 
-  <!-- Áudio da música (toca baixinho após interação) -->
-  <audio id="backgroundMusic" loop>
-    <source src="https://www.youtube.com/watch?v=L_T0zQbfeWA" type="audio/mpeg">
-    Seu navegador não suporta áudio.
-  </audio>
-
-  <!-- Container da neve (ativa após clique) -->
-  <div id="snow-container"></div>
-
-  <!-- BOTÃO FLUTUANTE WHATSAPP -->
-  <a href="https://wa.me/+5516988767617?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20fazer%20uma%20compra" class="whatsapp-float" target="_blank">
-    💬
-  </a>
-
-  <!-- Hamburger -->
   <button class="hamburger" onclick="toggleSidebar()">☰</button>
 
-  <!-- Sidebar -->
   <nav class="sidebar" id="sidebar">
     <ul>
       <li><a href="#inicio" class="active">INÍCIO</a></li>
@@ -637,7 +89,6 @@
     </ul>
   </nav>
 
-  <!-- Carrinho pequeno e clarinho -->
   <div id="cart-icon">
     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="2">
       <circle cx="9" cy="21" r="1"></circle>
@@ -647,51 +98,43 @@
     <span id="cart-badge">0</span>
   </div>
 
-  <!-- Dropdown Carrinho -->
   <div id="cart-dropdown">
     <h4 style="color:#27ae60; margin-bottom:20px; text-align:center; font-size:1.5rem;">Seu Carrinho</h4>
-    <ul id="cart-items" style="list-style:none; margin-bottom:20px; padding:0;"></ul>
+    <ul id="cart-items"></ul>
     <p id="cart-total" style="text-align:right; font-weight:700; color:#27ae60; font-size:1.4rem; margin:25px 0;">Total: R$0,00</p>
-    <div class="qr-low-value" id="qrLowValue">
-      <p>Pague via PIX até R$ 150 direto no QR Code abaixo</p>
-      <img src="https://via.placeholder.com/220x220/27ae60/000?text=QR+PIX+ATE+150" alt="QR Code PIX">
-    </div>
     <button class="btn" onclick="prosseguirParaPagamento()" style="width:100%;">Ir para Compra</button>
   </div>
 
-  <!-- Conteúdo Principal -->
   <main>
-    <!-- Página Inicial - limpa -->
     <section id="inicio" class="welcome category-section active">
-      <h2>Seja bem vindo a nossa loja.</h2>
-      <p>Somos especializados em genéricos e originais, com entrega discreta e segura em todo o Brasil.</p>
-      <p style="margin:1.5rem 0; font-size:1.3rem; color:#ffcc00; font-weight:600;">
+      <p style="margin:4rem 0 2rem; font-size:1.45rem; max-width:780px; margin-left:auto; margin-right:auto;">
+        Somos especializados em genéricos e originais, com entrega discreta e segura em todo o Brasil.
+      </p>
+      <p style="margin:1.5rem 0; font-size:1.3rem; color:#ffcc00; font-weight:600; text-align:center;">
         Vendas acima de R$ 150,00 só pelo WhatsApp. Clique no botão direito do produto desejado no catálogo para falar diretamente.
       </p>
       
-      <a href="#emagrecedores" class="btn-catalog" onclick="abrirCatalogo()">Explorar Catálogo</a>
+      <a href="#emagrecedores" class="btn-catalog" onclick="showSection('emagrecedores')">Explorar Catálogo</a>
       
       <div class="warning">
-        <strong>AVISO IMPORTANTE</strong><br><br>
-        • Todos os produtos são controlados e exigem uso responsável.<br>
-        • Frete grátis acima de R$ 170 em qualquer pedido.<br>
-        • Entrega rápida e 100% discreta.
+        <strong>AVISO</strong><br><br>
+        • Produtos controlados – uso responsável.<br>
+        • Frete grátis acima de R$ 170.<br>
+        • Entrega 100% discreta.
       </div>
 
-      <!-- Referências textuais -->
       <div class="references">
         <h3>O que estão dizendo</h3>
-        <blockquote>"Comprei Sibutramina e chegou em 4 dias, tudo discreto e perfeito. Recomendo!" – Maria S., RJ</blockquote>
-        <blockquote>"Ritalina original de qualidade, melhor preço que encontrei. Nota 10!" – Pedro M., SP</blockquote>
-        <blockquote>"Venvanse genérico 50mg salvou meu foco no trabalho. Entrega rápida." – Ana L., MG</blockquote>
-        <blockquote>"Dimorf 30mg pra dor crônica, embalagem discreta. Melhor site!" – Carlos R., RS</blockquote>
-        <blockquote>"Clonazepam 2mg pra ansiedade, tudo certo. Volto sempre." – Julia P., BA</blockquote>
+        <blockquote>"Chegou rápido e discreto. Recomendo!" – Maria S., RJ</blockquote>
+        <blockquote>"Qualidade top, melhor preço." – Pedro M., SP</blockquote>
+        <blockquote>"Salvou meu foco. Entrega perfeita." – Ana L., MG</blockquote>
+        <blockquote>"Embalagem discreta, nota 10." – Carlos R., RS</blockquote>
+        <blockquote>"Tudo certo, volto sempre." – Julia P., BA</blockquote>
       </div>
     </section>
 
-    <!-- EMAGRECEDORES -->
     <section id="emagrecedores" class="category-section">
-      <h2 class="category-title">EMAGRECEDORES</h2>
+      <h2>EMAGRECEDORES</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/27ae60?text=Sibutramina+15mg+1+Caixa" loading="lazy" alt="">
@@ -725,9 +168,8 @@
       </div>
     </section>
 
-    <!-- OPIÓIDES -->
     <section id="opioides" class="category-section">
-      <h2 class="category-title">OPIÓIDES</h2>
+      <h2>OPIÓIDES</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/ff3366?text=Zolpidem+10mg" loading="lazy" alt="">
@@ -759,9 +201,8 @@
       </div>
     </section>
 
-    <!-- BENZODIAZEPÍNICOS -->
     <section id="benzodiazepinicos" class="category-section">
-      <h2 class="category-title">BENZODIAZEPÍNICOS</h2>
+      <h2>BENZODIAZEPÍNICOS</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/27ae60?text=Alprazolam+2mg" loading="lazy" alt="">
@@ -793,9 +234,8 @@
       </div>
     </section>
 
-    <!-- ANTIPSICOTICOS -->
     <section id="antipsicoticos" class="category-section">
-      <h2 class="category-title">ANTIPSICOTICOS</h2>
+      <h2>ANTIPSICOTICOS</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/27ae60?text=Quetiapina" loading="lazy" alt="">
@@ -827,9 +267,8 @@
       </div>
     </section>
 
-    <!-- ANSIOLÍTICO -->
     <section id="ansiolitico" class="category-section">
-      <h2 class="category-title">ANSIOLÍTICO</h2>
+      <h2>ANSIOLÍTICO</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/27ae60?text=Buspirona+10mg" loading="lazy" alt="">
@@ -861,9 +300,8 @@
       </div>
     </section>
 
-    <!-- CONCENTRAÇÃO -->
     <section id="concentracao" class="category-section">
-      <h2 class="category-title">CONCENTRAÇÃO</h2>
+      <h2>CONCENTRAÇÃO</h2>
       <div class="promos">
         <div class="promo-card">
           <img src="https://via.placeholder.com/400x320/0f0f0f/27ae60?text=Ritalina+Original+30cp" loading="lazy" alt="">
@@ -906,8 +344,8 @@
           <h3>VENVANSE GENÉRICO - 30 MG</h3>
           <div class="price">R$ 550</div>
           <div class="btn-wrapper">
-            <button class="btn" onclick="confirmarAdicionar('Venvanse Generico 30mg',550)">Comprar Agora</button>
-            <a href="https://wa.me/+5516988767617?text=Quero+Venvanse+Generico+30mg" class="btn whatsapp-btn">WhatsApp</a>
+            <button class="btn" onclick="confirmarAdicionar('Venvanse Genérico 30mg',550)">Comprar Agora</button>
+            <a href="https://wa.me/+5516988767617?text=Quero+Venvanse+Genérico+30mg" class="btn whatsapp-btn">WhatsApp</a>
           </div>
         </div>
         <div class="promo-card">
@@ -915,8 +353,8 @@
           <h3>VENVANSE GENÉRICO - 50 MG</h3>
           <div class="price">R$ 650</div>
           <div class="btn-wrapper">
-            <button class="btn" onclick="confirmarAdicionar('Venvanse Generico 50mg',650)">Comprar Agora</button>
-            <a href="https://wa.me/+5516988767617?text=Quero+Venvanse+Generico+50mg" class="btn whatsapp-btn">WhatsApp</a>
+            <button class="btn" onclick="confirmarAdicionar('Venvanse Genérico 50mg',650)">Comprar Agora</button>
+            <a href="https://wa.me/+5516988767617?text=Quero+Venvanse+Genérico+50mg" class="btn whatsapp-btn">WhatsApp</a>
           </div>
         </div>
         <div class="promo-card">
@@ -924,8 +362,8 @@
           <h3>VENVANSE GENÉRICO - 70 MG</h3>
           <div class="price">R$ 720</div>
           <div class="btn-wrapper">
-            <button class="btn" onclick="confirmarAdicionar('Venvanse Generico 70mg',720)">Comprar Agora</button>
-            <a href="https://wa.me/+5516988767617?text=Quero+Venvanse+Generico+70mg" class="btn whatsapp-btn">WhatsApp</a>
+            <button class="btn" onclick="confirmarAdicionar('Venvanse Genérico 70mg',720)">Comprar Agora</button>
+            <a href="https://wa.me/+5516988767617?text=Quero+Venvanse+Genérico+70mg" class="btn whatsapp-btn">WhatsApp</a>
           </div>
         </div>
       </div>
@@ -933,8 +371,8 @@
   </main>
 
   <footer>
-    © 2026 - Loja Medicamentos Controlados<br>
-    Contato: +55 16 98876-7617 | Entrega discreta garantida
+    © 2026 - Medicamentos Controlados<br>
+    Contato: +55 16 98876-7617 | Entrega discreta
   </footer>
 
   <!-- Modal de Preenchimento de Dados -->
@@ -942,7 +380,7 @@
     <div class="modal-content">
       <span class="close-x" onclick="fecharModal('buyModal')">×</span>
       <h2>Finalize seu Pedido</h2>
-      <p style="color:#bbbbbb; margin:25px 0;">Preencha para calcular frete e gerar PIX.</p>
+      <p style="color:#bbb; margin:25px 0;">Preencha para calcular frete e gerar PIX.</p>
 
       <div style="text-align:left; max-width:440px; margin:0 auto;">
         <label for="email">Email</label>
@@ -979,79 +417,47 @@
     </div>
   </div>
 
-  <!-- Script Completo -->
   <script>
     const API_URL = 'https://api.pushinpay.com.br/api/pix/cashIn';
-    const TOKEN = '61386|R7lNhPAqyXCEuzgh2omy27dEeWj3wQstbuiTe1bW99f8eefe';
+    const TOKEN = '61472|hMuFRJ9uwhFhAgVnjFyiVs9MBvYKtn3SxrGzxNU8316dca85';
 
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    let itemAtual = {};
     let freteAtual = 0;
 
-    const music = document.getElementById('backgroundMusic');
-    const snowContainer = document.getElementById('snow-container');
-
-    // Função para criar neve
-    function createSnowflake() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-      snowflake.style.opacity = Math.random();
-      snowflake.style.width = Math.random() * 8 + 5 + 'px';
-      snowflake.style.height = snowflake.style.width;
-      snowContainer.appendChild(snowflake);
-
-      setTimeout(() => snowflake.remove(), 10000);
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
     }
 
-    // Neve caindo a cada 100ms
-    function startSnow() {
-      snowContainer.style.display = 'block';
-      setInterval(createSnowflake, 100);
+    function showSection(sectionId) {
+      document.querySelectorAll('.category-section').forEach(sec => sec.classList.remove('active'));
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.classList.add('active');
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+      document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+      const link = document.querySelector(`.sidebar a[href="#${sectionId}"]`);
+      if (link) link.classList.add('active');
     }
 
-    // Abre catálogo, toca música e inicia neve
-    function abrirCatalogo() {
-      showSection('emagrecedores'); // abre o catálogo automaticamente
-
-      // Toca música baixinho
-      music.volume = 0.15;
-      music.play().catch(err => console.log('Autoplay bloqueado:', err));
-
-      // Inicia neve
-      startSnow();
-    }
-
-    // Navegação do menu lateral
     document.querySelectorAll('.sidebar a').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         const targetId = this.getAttribute('href').substring(1);
         showSection(targetId);
         toggleSidebar();
-
-        // Toca música e inicia neve se já interagiu
-        if (music.paused) {
-          music.volume = 0.15;
-          music.play().catch(() => {});
-        }
-        if (!snowContainer.style.display || snowContainer.style.display === 'none') {
-          startSnow();
-        }
       });
     });
 
-    // Botão "Explorar Catálogo" na home
     document.querySelector('.btn-catalog')?.addEventListener('click', function(e) {
       e.preventDefault();
-      abrirCatalogo();
+      showSection('emagrecedores');
     });
 
     function confirmarAdicionar(produto, valor) {
       if (confirm(`Adicionar ${produto} (R$ ${valor})?`)) {
         adicionarAoCarrinho(produto, valor);
-        alert('Adicionado ao carrinho!');
+        alert('Adicionado!');
       }
     }
 
@@ -1094,14 +500,6 @@
       });
 
       document.getElementById('cart-total').textContent = `Total: R$ ${total.toFixed(2)}`;
-
-      // Mostra QR Code se total <= 150
-      const qrDiv = document.getElementById('qrLowValue');
-      if (total <= 150 && total > 0) {
-        qrDiv.style.display = 'block';
-      } else {
-        qrDiv.style.display = 'none';
-      }
     }
 
     function calcularFrete() {
@@ -1127,7 +525,7 @@
 
       valueEl.textContent = `Valor: R$${(valorCentavos / 100).toFixed(2)} - ${descricao}`;
       qrEl.src = '';
-      codeEl.value = 'Conectando à API...';
+      codeEl.value = 'Gerando PIX...';
 
       document.getElementById('pixModal').style.display = 'flex';
 
@@ -1142,37 +540,30 @@
           body: JSON.stringify({ value: valorCentavos, webhook_url: '' })
         });
 
-        if (!res.ok) {
-          const errText = await res.text();
-          throw new Error(`Erro ${res.status}: ${errText}`);
-        }
-
         const data = await res.json();
 
-        if (data.qr_code_base64) {
+        if (res.ok && data.qr_code_base64) {
           qrEl.src = `data:image/png;base64,${data.qr_code_base64}`;
           codeEl.value = data.qr_code || 'Código gerado com sucesso';
-          
-          let time = 900;
-          const interval = setInterval(() => {
-            time--;
-            const m = Math.floor(time / 60);
-            const s = time % 60;
-            timerEl.textContent = `${m}:${s < 10 ? '0' + s : s}`;
-            if (time <= 0) {
-              clearInterval(interval);
-              timerEl.textContent = 'Tempo esgotado';
-            }
-          }, 1000);
-          
-          alert('QR Code gerado! Escaneie ou copie o código.');
         } else {
-          codeEl.value = 'API respondeu, mas sem QR Code';
+          codeEl.value = data.message || 'Erro na API – verifique o console';
+          console.error('Resposta da API:', data);
         }
+
+        let time = 900;
+        const interval = setInterval(() => {
+          time--;
+          const m = Math.floor(time / 60);
+          const s = time % 60;
+          timerEl.textContent = `${m}:${s < 10 ? '0' + s : s}`;
+          if (time <= 0) {
+            clearInterval(interval);
+            timerEl.textContent = 'Tempo esgotado';
+          }
+        }, 1000);
       } catch (err) {
         console.error('Erro ao gerar PIX:', err);
-        codeEl.value = 'Falha: ' + err.message;
-        alert('Erro ao gerar PIX: ' + err.message + '\nVerifique o console (F12).');
+        codeEl.value = 'Falha na conexão com a API';
       }
     }
 
@@ -1216,7 +607,6 @@
       document.getElementById(id).style.display = 'none';
     }
 
-    // Eventos do carrinho
     document.getElementById('cart-icon').addEventListener('click', e => {
       e.stopPropagation();
       const dd = document.getElementById('cart-dropdown');
@@ -1231,9 +621,7 @@
       }
     });
 
-    // Inicializa carrinho
     atualizarCarrinho();
   </script>
 </body>
 </html>
-
